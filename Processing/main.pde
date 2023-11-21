@@ -1,6 +1,6 @@
 // ============ VARIABLES ============
 
-Player player = new Player(20, 20);
+Player player = new Player(100, 100);
 
 
 // ============ STATE HANDLER AND STATES ============
@@ -22,8 +22,9 @@ void setup() {
 
 void draw() {
     stateHandler.executeCurrentStateStep();
-    debug();
     player.update();
+    
+    //debug();
 }
 
 // ============ EVENT HANDLERS ============
@@ -38,9 +39,7 @@ void keyTyped()      { stateHandler.handleKeyTyped();      }
 void mousePressed()  { stateHandler.handleMousePressed();  }
 void mouseClicked()  { 
   stateHandler.handleMouseClicked();  
-   if (stateHandler.getState() instanceof Scene) {
-    player.handleMousePressed((Scene)stateHandler.getState());
-  }
+  player.handleMousePressed();
 }
 void mouseReleased() { stateHandler.handleMouseReleased(); }
 void mouseDragged()  { stateHandler.handleMouseDragged();  }
@@ -52,5 +51,6 @@ void debug() {
    if (stateHandler.getState() instanceof Scene) {
      Scene scene = (Scene)stateHandler.getState();
      scene.getWalkableArea().render();
+     player.debug();
   }
 }

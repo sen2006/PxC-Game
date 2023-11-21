@@ -43,7 +43,9 @@ class WalkableSquare {
   
   void render() {
     rectMode(CORNER);
-    fill(#E124FF);
+    strokeWeight(1);
+    stroke(50);
+    fill(#E124FF,50);
     rect(x,y,w,h);
   }
 }

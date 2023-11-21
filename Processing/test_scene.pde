@@ -7,13 +7,18 @@ class TestScene extends Scene
   TestScene() {
     super( "sprite/scene/test_scene.png", new WalkableArea(new ArrayList<WalkableSquare>()));
     
-    walkableArea.add(new WalkableSquare(10, 10, 200, 200));
+    walkableArea.add(new WalkableSquare(50, 50, 200, 400));
+    walkableArea.add(new WalkableSquare(250, 250, 200, 200));
   }
 
   public void doStepWhileInState()
   {
     super.doStepWhileInState();
     //resetButton.display();
+    
+    fill(#F54A4A);
+    rect(25,25,250,450);
+    rect(225,225,250,250);
   }
 
   void handleMousePressed() {

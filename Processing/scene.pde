@@ -25,4 +25,13 @@ class Scene extends State
   {
     image( background, 0, 0, width, height );
   }
+  
+  /*
+  int getWitdh() {
+    return background.width;
+  }
+  int getHeight() {
+    return background.height;
+  }
+  */
 }
