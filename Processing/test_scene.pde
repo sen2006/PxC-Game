@@ -17,6 +17,7 @@ class TestScene extends Scene
     //resetButton.display();
     
     fill(#F54A4A);
+    stroke(0,0);
     rect(25,25,250,450);
     rect(225,225,250,250);
   }

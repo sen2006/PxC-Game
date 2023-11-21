@@ -36,11 +36,11 @@ void keyPressed()    { stateHandler.handleKeyPressed();    }
 void keyReleased()   { stateHandler.handleKeyReleased();   }
 void keyTyped()      { stateHandler.handleKeyTyped();      }
 
-void mousePressed()  { stateHandler.handleMousePressed();  }
-void mouseClicked()  { 
-  stateHandler.handleMouseClicked();  
+void mousePressed()  { 
+  stateHandler.handleMousePressed();  
   player.handleMousePressed();
 }
+void mouseClicked()  { stateHandler.handleMouseClicked();  }
 void mouseReleased() { stateHandler.handleMouseReleased(); }
 void mouseDragged()  { stateHandler.handleMouseDragged();  }
 void mouseMoved()    { stateHandler.handleMouseMoved();    }

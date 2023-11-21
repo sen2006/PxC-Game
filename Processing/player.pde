@@ -36,22 +36,25 @@ class Player {
         outsideWalkable = false;
       }
     }
-
+    
+    // lerp to desired sertination
     x=lerp(x, moveX, walkspeed);
     y=lerp(y, moveY, walkspeed);
+    
+    // temporary player model
     fill(150);
     ellipse(x, y, 50, 50);
-
     translate(x, y);
     rotate(angle);
     strokeWeight(4);
+    stroke(0);
     line(0, 0, 25, 0);
     resetMatrix();
   }
 
   void handleMousePressed() {
     // check if point is inside the walkable area
-    if (!outsideWalkable && stateHandler.getState() instanceof Scene) {
+    if (mouseButton == LEFT && !outsideWalkable && stateHandler.getState() instanceof Scene) {
       Scene scene = (Scene)stateHandler.getState();
       WalkableArea area = scene.getWalkableArea();
       if (area.isPointInside(mouseX, mouseY)) {
