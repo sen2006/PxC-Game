@@ -17,6 +17,12 @@ class WalkableArea {
   void add(WalkableSquare square) {
     squareList.add(square);
   }
+  
+  void render() {
+    for(WalkableSquare square : squareList) {
+      square.render();
+    }
+  }
 }
 
 class WalkableSquare {
@@ -33,5 +39,11 @@ class WalkableSquare {
   }
   boolean isPointInside( int px, int py ) {
     return isPointInRectangle( px, py, x, y, w, h);
+  }
+  
+  void render() {
+    rectMode(CORNER);
+    fill(#E124FF);
+    rect(x,y,w,h);
   }
 }

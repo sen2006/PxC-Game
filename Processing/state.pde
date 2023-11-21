@@ -164,6 +164,10 @@ class StateHandler
   String getName() {
     return name;
   }
+  
+  State getState() {
+    return currentState; 
+  }
 
   String getStateName() {
     return currentState != null ? currentState.getName() : "" ;

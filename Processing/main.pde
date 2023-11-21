@@ -22,8 +22,9 @@ void setup() {
 
 void draw() {
     stateHandler.executeCurrentStateStep();
+    debug();
+    player.update();
 }
-
 
 // ============ EVENT HANDLERS ============
 
@@ -35,9 +36,21 @@ void keyReleased()   { stateHandler.handleKeyReleased();   }
 void keyTyped()      { stateHandler.handleKeyTyped();      }
 
 void mousePressed()  { stateHandler.handleMousePressed();  }
-void mouseClicked()  { stateHandler.handleMouseClicked();  }
+void mouseClicked()  { 
+  stateHandler.handleMouseClicked();  
+   if (stateHandler.getState() instanceof Scene) {
+    player.handleMousePressed((Scene)stateHandler.getState());
+  }
+}
 void mouseReleased() { stateHandler.handleMouseReleased(); }
 void mouseDragged()  { stateHandler.handleMouseDragged();  }
 void mouseMoved()    { stateHandler.handleMouseMoved();    }
 
 void mouseWheel(MouseEvent event) { stateHandler.handleMouseWheel( event ); }
+
+void debug() {
+   if (stateHandler.getState() instanceof Scene) {
+     Scene scene = (Scene)stateHandler.getState();
+     scene.getWalkableArea().render();
+  }
+}

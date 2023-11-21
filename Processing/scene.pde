@@ -12,8 +12,12 @@ class Scene extends State
   void enterState( State oldState )
   {
     if ( background == null ) {
-      background = loadImage( filename );
+      background = loadImage(dataPath(filename));
     }
+  }
+  
+  WalkableArea getWalkableArea() {
+    return walkableArea; 
   }
 
 

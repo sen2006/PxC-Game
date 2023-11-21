@@ -2,10 +2,10 @@
 
 class TestScene extends Scene
 {
-  TextButton resetButton = new TextButton( 320, 400, "Reset", 50 );
+  //TextButton resetButton = new TextButton( 320, 400, "Reset", 50 );
 
   TestScene() {
-    super( "forest.png", new WalkableArea(new ArrayList<WalkableSquare>()));
+    super( "sprite/scene/test_scene.png", new WalkableArea(new ArrayList<WalkableSquare>()));
     
     walkableArea.add(new WalkableSquare(10, 10, 200, 200));
   }
@@ -13,7 +13,7 @@ class TestScene extends Scene
   public void doStepWhileInState()
   {
     super.doStepWhileInState();
-    resetButton.display();
+    //resetButton.display();
   }
 
   void handleMousePressed() {
