@@ -1,7 +1,7 @@
 class Player {
   boolean outsideWalkable = false;
 
-  int interactionRadius = 60;
+  int interactionRadius = 75;
 
   PImage sprite;
   float x;
@@ -91,5 +91,8 @@ class Player {
     strokeWeight(2);
     stroke(0);
     line(x, y, moveX, moveY);
+    
+    color(#059EFA,130);
+    ellipse(x,y,interactionRadius,interactionRadius);
   }
 }
