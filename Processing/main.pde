@@ -9,17 +9,17 @@ boolean debugMode = false;
 StateHandler stateHandler;
 
 final State  TEST_SCENE = new  TestScene();
-//final State   LAWN_SCENE = new   LawnScene();
+final State  TEST_SCENE_TWO = new   TestSceneTwo();
 //final State  TABLE_SCENE = new  TableScene();
 //final State FOREST_SCENE = new ForestScene();
 
 
 void setup() {
-    size( 800, 800 );
+    size( 800 , 800 );
     noStroke();
     stateHandler = new StateHandler( "Example game" );
     stateHandler.changeStateTo( TEST_SCENE );
-    objectList = new ArrayList<Object>();
+    objectList = new ArrayList<Object>();   
     objectList.add(new Object(350,350,40,40));
 }
 
