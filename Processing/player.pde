@@ -38,11 +38,11 @@ class Player {
         outsideWalkable = false;
       }
     }
-    
+
     // lerp to desired sertination
     x=lerp(x, moveX, walkspeed);
     y=lerp(y, moveY, walkspeed);
-    
+
     // temporary player model
     fill(150);
     ellipse(x, y, 50, 50);
@@ -78,21 +78,32 @@ class Player {
     float dy=moveY-y;
     angle = atan2(dy, dx);
   }
-  
+
+  void teleport(float px, float py) {
+    x = px;
+    y = py;
+    moveX=px;
+    moveY=py;
+  }
+
   int getInteractionRadius() {
     return interactionRadius;
   }
-  
-  float getX() {return x;}
-  float getY() {return y;}
+
+  float getX() {
+    return x;
+  }
+  float getY() {
+    return y;
+  }
 
   //debug rendering
   void debug() {
     strokeWeight(2);
     stroke(0);
     line(x, y, moveX, moveY);
-    
-    color(#059EFA,130);
-    ellipse(x,y,interactionRadius,interactionRadius);
+
+    color(#059EFA, 130);
+    ellipse(x, y, interactionRadius, interactionRadius);
   }
 }

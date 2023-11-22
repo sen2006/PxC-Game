@@ -16,4 +16,6 @@ class TestSceneTwo extends Scene
     stroke(0, 0);
     rect(25, 25, 250, 450);
   }
+  
+  void createDoors() {}
 }

@@ -56,6 +56,8 @@ class State
   }
   public void handleKeyReleased() {
   }
+  
+  public void createDoors() {}
 }
 
 

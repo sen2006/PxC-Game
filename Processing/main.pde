@@ -8,6 +8,7 @@ ArrayList<Object> inventory;
 // ============ STATE HANDLER AND STATES ============
 StateHandler stateHandler;
 
+
 final State  TEST_SCENE = new  TestScene();
 final State  TEST_SCENE_TWO = new   TestSceneTwo();
 //final State  TABLE_SCENE = new  TableScene();
@@ -22,6 +23,9 @@ void setup() {
     stateHandler = new StateHandler( "Example game" );
     stateHandler.changeStateTo( TEST_SCENE );
     
+    
+    TEST_SCENE.createDoors();
+    TEST_SCENE_TWO.createDoors();
 }
 
 
@@ -29,7 +33,6 @@ void draw() {
     stateHandler.executeCurrentStateStep();
     player.update();
     drawInv();
-    println(inventory);
     if (debugMode) debug();
 }
 
@@ -46,9 +49,6 @@ void keyPressed()    {
 }
 void keyReleased()   {
 stateHandler.handleKeyReleased(); 
-if (key == 32) {
-stateHandler.changeStateTo( TEST_SCENE_TWO );
-}
 }
 void keyTyped()      { stateHandler.handleKeyTyped();      }
 
@@ -67,6 +67,7 @@ void debug() {
    if (stateHandler.getState() instanceof Scene) {
      Scene scene = (Scene)stateHandler.getState();
      scene.getWalkableArea().render();
+     scene.debug();
      player.debug();
   }
 }

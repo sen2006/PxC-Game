@@ -38,11 +38,14 @@ class Scene extends State
       }
     }
 
+    for (Door door : doorList) {
+      door.isPlayerOnDoor();
+    }
+  }
 
-    if (debugMode) {
-      for (Door door : doorList) {
-        door.debug();
-      }
+  void debug() {
+    for (Door door : doorList) {
+      door.debug();
     }
   }
 
