@@ -1,6 +1,5 @@
 class Object {
 
-
   int objectX;
   int objectY;
   int objectWidth;
