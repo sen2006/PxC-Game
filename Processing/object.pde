@@ -1,10 +1,8 @@
 class Object {
 
-<<<<<<< HEAD
-=======
+
   boolean collected = false;
 
->>>>>>> betterObjectIntegration
   int objectX;
   int objectY;
   

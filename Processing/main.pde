@@ -15,22 +15,13 @@ final State  TEST_SCENE_TWO = new   TestSceneTwo();
 
 
 void setup() {
-<<<<<<< HEAD
   frameRate(60);
-    size( 1920 , 1080 );
-=======
     size(1920,1080);
->>>>>>> betterObjectIntegration
     noStroke();
     inventory = new ArrayList<Object>();
     stateHandler = new StateHandler( "Example game" );
     stateHandler.changeStateTo( TEST_SCENE );
-<<<<<<< HEAD
-    objectList = new ArrayList<Object>();   
     
-    objectList.add(new Object(350,350,40,40));
-=======
->>>>>>> betterObjectIntegration
 }
 
 
