@@ -1,11 +1,15 @@
 class Object {
 
   ArrayList<Object> objectList;
-  object (ArrayList<Object> nList) {
+  
+  int objectX;
+  int objectY;
+  int objectWidth;
+  int objectHeight;
+  
+  Object (ArrayList<Object> nList) {
     objectList = nList;
   }
-
-  int objectX, objectY, objectWidth, objectHeight;
 
   Object(int x, int y, int w, int h) {
     objectX = x;
@@ -19,3 +23,4 @@ class Object {
     rectMode(CENTER);
     rect(objectX, objectY, objectWidth, objectHeight);
   }
+}
