@@ -3,10 +3,12 @@ class Scene extends State
   PImage background;
   String filename;
   WalkableArea walkableArea; 
+ArrayList<Door>doorList;
 
   Scene( String backgroundFilename, WalkableArea area) {
     filename = backgroundFilename;
     walkableArea = area;
+    doorList = new ArrayList<Door>();
   }
 
   void enterState( State oldState )
@@ -24,6 +26,11 @@ class Scene extends State
   public void doStepWhileInState()
   {
     image( background, 0, 0, width, height );
+    if(debugMode){
+    for(Door door: doorList){
+    door.debug();
+    }
+    }
   }
   
   /*

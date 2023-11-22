@@ -15,11 +15,13 @@ final State  TEST_SCENE_TWO = new   TestSceneTwo();
 
 
 void setup() {
-    size( 800 , 800 );
+  frameRate(60);
+    size( 1920 , 1080 );
     noStroke();
     stateHandler = new StateHandler( "Example game" );
     stateHandler.changeStateTo( TEST_SCENE );
     objectList = new ArrayList<Object>();   
+    
     objectList.add(new Object(350,350,40,40));
 }
 
@@ -46,7 +48,12 @@ void keyPressed()    {
     debugMode=!debugMode;
   }
 }
-void keyReleased()   { stateHandler.handleKeyReleased();   }
+void keyReleased()   {
+stateHandler.handleKeyReleased(); 
+if (key == 32) {
+stateHandler.changeStateTo( TEST_SCENE_TWO );
+}
+}
 void keyTyped()      { stateHandler.handleKeyTyped();      }
 
 void mousePressed()  { 
