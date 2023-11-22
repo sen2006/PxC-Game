@@ -18,12 +18,12 @@ final State  TEST_SCENE_TWO = new   TestSceneTwo();
 void setup() {
   frameRate(60);
     size(1920,1080);
-    noStroke();
     inventory = new ArrayList<Object>();
-    stateHandler = new StateHandler( "Example game" );
+    
+    stateHandler = new StateHandler( "Game" );
     stateHandler.changeStateTo( TEST_SCENE );
     
-    
+    //mention all scenes with doors here
     TEST_SCENE.createDoors();
     TEST_SCENE_TWO.createDoors();
 }

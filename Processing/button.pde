@@ -35,9 +35,6 @@ class ImageButton {
       buttonImage = loadImage(dataPath(buttonFilename));
     }
     image( buttonImage, x, y );
-    //noFill();
-    //stroke( 255, 0, 255 );
-    //rect( x, y, buttonImage.width, buttonImage.height );
   }
 
   boolean isPointInside( int px, int py ) {

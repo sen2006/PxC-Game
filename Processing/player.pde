@@ -1,7 +1,7 @@
 class Player {
   boolean outsideWalkable = false;
 
-  int interactionRadius = 75;
+  int interactionRadius = 50;
 
   PImage sprite;
   float x;
@@ -44,6 +44,8 @@ class Player {
     y=lerp(y, moveY, walkspeed);
 
     // temporary player model
+    stroke(0);
+    strokeWeight(1);
     fill(150);
     ellipse(x, y, 50, 50);
     translate(x, y);
@@ -104,6 +106,6 @@ class Player {
     line(x, y, moveX, moveY);
 
     color(#059EFA, 130);
-    ellipse(x, y, interactionRadius, interactionRadius);
+    ellipse(x, y, 2*interactionRadius, 2*interactionRadius);
   }
 }

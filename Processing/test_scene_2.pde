@@ -6,6 +6,11 @@ class TestSceneTwo extends Scene
 
     walkableArea.add(new WalkableSquare(50, 50, 200, 400));
     walkableArea.add(new WalkableSquare(250, 250, 200, 200));
+    
+    objects.add(new HighlightObject(100,100,"", "sprite/object/placeholders/placeholder.png", 255));
+    objects.add(new HighlightObject(100,300, false, "", "sprite/object/placeholders/placeholder.png", 255));
+    objects.add(new HighlightObject(300,300, false, true, "", "sprite/object/placeholders/placeholder.png", 255));
+    objects.add(new TogleableObject(175,300, "", "sprite/object/placeholders/placeholder.png"));
   }
 
   public void doStepWhileInState()
@@ -15,7 +20,14 @@ class TestSceneTwo extends Scene
     fill(#326fd1);
     stroke(0, 0);
     rect(25, 25, 250, 450);
+    rect(225,225,250,250);
+    
+    for(Object object : objects) {
+      object.draw();
+    }
   }
   
-  void createDoors() {}
+  void createDoors() {
+    doorList.add(new Door(40,60,40,100,TEST_SCENE,220,100));
+  }
 }

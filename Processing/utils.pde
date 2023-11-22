@@ -13,6 +13,18 @@ boolean isKeyStringInInv(String keyString) {
   return false;
 }
 
+boolean isKeyStringActiveInScene(String keyString) {
+  if (stateHandler.getState() instanceof Scene) {
+    Scene scene = (Scene)stateHandler.getState();
+    for (Object object : scene.getObjects()) {
+      if (object.getKeyString().equals(keyString)) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
 void drawInv() {
   for (int i=0; i<inventory.size(); i++) {
     inventory.get(i).setPos(width-100, 20+(i*60));
