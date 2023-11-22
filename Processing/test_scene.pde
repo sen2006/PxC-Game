@@ -2,9 +2,11 @@
 
  class TestScene extends Scene
 {
-  //TextButton resetButton = new TextButton( 320, 400, "Reset", 50 );
   
+<<<<<<< HEAD
 
+=======
+>>>>>>> betterObjectIntegration
 
   TestScene() {
     super( "sprite/scene/test_scene.png", new WalkableArea(new ArrayList<WalkableSquare>()));
@@ -12,21 +14,28 @@
     walkableArea.add(new WalkableSquare(50, 50, 200, 400));
     walkableArea.add(new WalkableSquare(250, 250, 200, 200));
     
+<<<<<<< HEAD
     doorList.add(new Door(500,500,80,50));
+=======
+    objects.add(new Object(100,100, false , false, "", "sprite/object/placeholders/placeholder.png"));
+    objects.add(new Object(100,300, true, false, "", "sprite/object/placeholders/placeholder.png"));
+    objects.add(new Object(300,300, false, true, "", "sprite/object/placeholders/placeholder.png"));
+>>>>>>> betterObjectIntegration
   }
 
   public void doStepWhileInState()
   {
     super.doStepWhileInState();
-    //resetButton.display();
     
     rectMode(CORNER);
     fill(#F54A4A);
     stroke(0,0);
     rect(25,25,250,450);
     rect(225,225,250,250);
-    
-    //testObject.draw();
+
+    for(Object object : objects) {
+      object.draw();
+    }
   }
 
   void handleMousePressed() {

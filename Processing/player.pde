@@ -1,6 +1,8 @@
 class Player {
   boolean outsideWalkable = false;
 
+  int interactionRadius = 75;
+
   PImage sprite;
   float x;
   float y;
@@ -76,11 +78,21 @@ class Player {
     float dy=moveY-y;
     angle = atan2(dy, dx);
   }
+  
+  int getInteractionRadius() {
+    return interactionRadius;
+  }
+  
+  float getX() {return x;}
+  float getY() {return y;}
 
   //debug rendering
   void debug() {
     strokeWeight(2);
     stroke(0);
     line(x, y, moveX, moveY);
+    
+    color(#059EFA,130);
+    ellipse(x,y,interactionRadius,interactionRadius);
   }
 }

@@ -32,7 +32,7 @@ class ImageButton {
 
   void display() {
     if ( buttonImage == null ) {
-      buttonImage = loadImage( buttonFilename );
+      buttonImage = loadImage(dataPath(buttonFilename));
     }
     image( buttonImage, x, y );
     //noFill();
@@ -88,18 +88,18 @@ class TextButton {
 }
 
 
-class HintButton extends ImageButton {
+class HoverButton extends ImageButton {
   TextButton textButton;
   int max_distance;
 
-  HintButton( String buttonImageFilename, String hintText, int newX, int newY ) {
+  HoverButton( String buttonImageFilename, String hintText, int newX, int newY ) {
     super( buttonImageFilename, newX, newY );
     textButton = new TextButton( x - 30, y - 30, hintText, 20 );
   }
 
   void display() {
     if ( buttonImage == null ) {
-      buttonImage = loadImage( buttonFilename );
+      buttonImage = loadImage(dataPath(buttonFilename));
       max_distance = buttonImage.width * 6;
     }
 
