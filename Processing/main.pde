@@ -2,6 +2,8 @@
 
 Player player = new Player(100, 100);
 
+boolean debugMode = false;
+
 
 // ============ STATE HANDLER AND STATES ============
 StateHandler stateHandler;
@@ -24,7 +26,7 @@ void draw() {
     stateHandler.executeCurrentStateStep();
     player.update();
     
-    //debug();
+    if (debugMode) debug();
 }
 
 // ============ EVENT HANDLERS ============
@@ -32,7 +34,12 @@ void draw() {
 // only put stuff in here that is valid for all states
 // otherwise use the handleKeyPressed in the state itself
 
-void keyPressed()    { stateHandler.handleKeyPressed();    }
+void keyPressed()    { 
+  stateHandler.handleKeyPressed();    
+  if (key == 'd') {
+    debugMode=!debugMode;
+  }
+}
 void keyReleased()   { stateHandler.handleKeyReleased();   }
 void keyTyped()      { stateHandler.handleKeyTyped();      }
 
