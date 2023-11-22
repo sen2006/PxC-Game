@@ -24,7 +24,7 @@ class TestScene extends Scene
     rect(25,25,250,450);
     rect(225,225,250,250);
     
-    testObject.draw();
+    //testObject.draw();
   }
 
   void handleMousePressed() {

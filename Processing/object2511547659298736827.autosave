@@ -1,10 +1,6 @@
 class Object {
 
-
-  int objectX;
-  int objectY;
-  int objectWidth;
-  int objectHeight;
+  int objectX, objectY, objectWidth, objectHeight;
 
   Object(int x, int y, int w, int h) {
     objectX = x;
@@ -20,7 +16,7 @@ class Object {
     rect(objectX, objectY, objectWidth, objectHeight);
     pop();
   }
-  boolean checkCol(float x, float y,float rad){
+  boolean checkCol (float x, float y, float rad){
   float distance = dist(objectX,objectY,x,y);
   if(distance < rad){
   return true;
