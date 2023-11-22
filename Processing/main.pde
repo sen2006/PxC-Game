@@ -1,8 +1,8 @@
 // ============ VARIABLES ============
 
 Player player = new Player(100, 100);
-ArrayList<Object>objectList;
 boolean debugMode = false;
+ArrayList<Object> inventory;
 
 
 // ============ STATE HANDLER AND STATES ============
@@ -15,23 +15,19 @@ final State  TEST_SCENE_TWO = new   TestSceneTwo();
 
 
 void setup() {
-    size( 800 , 800 );
+    size(1920,1080);
     noStroke();
+    inventory = new ArrayList<Object>();
     stateHandler = new StateHandler( "Example game" );
     stateHandler.changeStateTo( TEST_SCENE );
-    objectList = new ArrayList<Object>();   
-    objectList.add(new Object(350,350,40,40));
 }
 
 
 void draw() {
     stateHandler.executeCurrentStateStep();
     player.update();
-      for (int i = objectList.size() - 1; i >= 0; i--){
-
-    objectList.get(i).Draw();
-      }
-    
+    drawInv();
+    println(inventory);
     if (debugMode) debug();
 }
 
@@ -52,14 +48,6 @@ void keyTyped()      { stateHandler.handleKeyTyped();      }
 void mousePressed()  { 
   stateHandler.handleMousePressed();  
   player.handleMousePressed();
-  if(mouseButton == RIGHT) {
-  for (int i = objectList.size() - 1; i >= 0; i--){
-    if(objectList.get(i).checkCol(player.x,player.y,50)){
-  objectList.remove(i);
-  println("Object Checked and Removed");
-    }
-  }
-  }
 }
 void mouseClicked()  { stateHandler.handleMouseClicked();  }
 void mouseReleased() { stateHandler.handleMouseReleased(); }

@@ -1,6 +1,8 @@
 class Player {
   boolean outsideWalkable = false;
 
+  int interactionRadius = 60;
+
   PImage sprite;
   float x;
   float y;
@@ -76,6 +78,13 @@ class Player {
     float dy=moveY-y;
     angle = atan2(dy, dx);
   }
+  
+  int getInteractionRadius() {
+    return interactionRadius;
+  }
+  
+  float getX() {return x;}
+  float getY() {return y;}
 
   //debug rendering
   void debug() {

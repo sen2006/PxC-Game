@@ -2,7 +2,6 @@
 
 class TestSceneTwo extends Scene
 {
-  //TextButton resetButton = new TextButton( 320, 400, "Reset", 50 );
 
   TestSceneTwo() {
     super( "sprite/scene/test_scene.png", new WalkableArea(new ArrayList<WalkableSquare>()));
@@ -12,16 +11,23 @@ class TestSceneTwo extends Scene
 
   public void doStepWhileInState()
   {
+    
     super.doStepWhileInState();
     //resetButton.display();
-    
     rectMode(CORNER);
     fill(#F54A4A);
     stroke(0,0);
     rect(25,25,250,450);
+    
+    for(Object object : objects) {
+      object.draw(); 
     }
+   }
 
   void handleMousePressed() {
     super.handleMousePressed();
+    if (mouseButton == RIGHT) {
+      
+    }
   }
 }

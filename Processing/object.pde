@@ -1,30 +1,63 @@
 class Object {
 
+  boolean collected = false;
 
   int objectX;
   int objectY;
-  int objectWidth;
-  int objectHeight;
+  
+  boolean hideOnCollect;
+  boolean addToInvOnCollect;
+  
+  String filename;
+  PImage sprite;
+  
+  String keyString;
 
-  Object(int x, int y, int w, int h) {
+  Object(int x, int y, boolean hideWhenCollected, boolean addToInv, String keyS, String newFilename) {
     objectX = x;
     objectY = y;
-    objectWidth = w;
-    objectHeight = h;
+    hideOnCollect = hideWhenCollected;
+    addToInvOnCollect = addToInv;
+    keyString = keyS;
+    filename = newFilename;
   }
 
-  void Draw() {
-    push();
+  void draw() {
+    if (sprite == null) {
+       sprite = loadImage(dataPath(filename));
+    }
     fill(0, 255, 0);
-    rectMode(CENTER);
-    rect(objectX, objectY, objectWidth, objectHeight);
-    pop();
+    rectMode(CORNER);
+    if (!hideOnCollect || !collected) {
+      image(sprite, objectX, objectY);
+    }
   }
-  boolean checkCol(float x, float y,float rad){
-  float distance = dist(objectX,objectY,x,y);
-  if(distance < rad){
-  return true;
+  
+  void setPos(int newX, int newY) {
+    objectX = newX;
+    objectY = newY;
   }
-  return false;
+  
+  String getKeyString() {
+    return keyString;
+  }
+  
+  String getFilename() {
+    return filename; 
+  }
+  
+  boolean getCollected() {
+    return collected;
+  }
+  
+  boolean shouldMoveToInv() {
+    return addToInvOnCollect;
+  }
+  
+  void checkCol() {
+    float distance = dist(objectX+sprite.height/2, objectY+sprite.width/2, player.getX(), player.getY());
+    if (isPointInRectangle(mouseX, mouseY, objectX, objectY, sprite.height, sprite.width) && distance < player.getInteractionRadius()) {
+      collected = true;
+    }
   }
 }

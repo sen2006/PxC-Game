@@ -6,7 +6,19 @@ boolean isPointInRectangle(float px, float py, float rx, float ry, float rw, flo
   return px >= rx && px <= rx + rw && py >= ry && py <= ry + rh;
 }
 
+boolean isKeyStringInInv(String keyString) {
+  for (Object object : inventory) {
+    return object.getKeyString().equals(keyString);
+  }
+  return false;
+}
 
+void drawInv() {
+  for (int i=0; i<inventory.size(); i++) {
+    inventory.get(i).setPos(width-100, 20+(i*60));
+    inventory.get(i).draw();
+  }
+}
 
 // trace functions:
 //    traceWithTime( String traceMessage )
