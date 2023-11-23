@@ -41,10 +41,11 @@ void setup() {
 void draw() {
   getDeltaTime();
   stateHandler.executeCurrentStateStep();
-  dialogueHandler.draw();
   player.update();
   drawInv();
   if (debugMode) debug();
+  
+  dialogueHandler.draw();
 }
 
 void getDeltaTime() {
