@@ -33,10 +33,9 @@ void setup() {
   //stateHandler.changeStateTo( TEST_SCENE );
 
   dialogueHandler = new DialogueHandler();
-  /*dialogueHandler.add(new Dialogue("TEST", 50, 2000));
+  dialogueHandler.add(new Dialogue("TEST", 50, 2000));
   dialogueHandler.add(new Dialogue("TEST2", 50, 2000));
   dialogueHandler.add(new ImageDialogue("TEST3", 50, 20000, "sprite/dialogue/placeholderMainCar.png"));
-  */
 
   //mention all scenes with doors here
   TEST_SCENE.createDoors();
