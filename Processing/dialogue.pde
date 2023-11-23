@@ -26,6 +26,22 @@ class Dialogue {
   }
 }
 
+class ImageDialogue extends Dialogue {
+  String filename;
+  
+  ImageDialogue(String text, int textSize, int onScreenTime, String newFilename) {
+    super(text, textSize, onScreenTime);
+    filename = newFilename;
+  }
+  
+  String getFilename() {
+    /*if (sprite == null) {
+      sprite = loadImage(dataPath(filename));
+    }*/
+    return filename;
+  }
+}
+
 class DialogueHandler {
   ArrayList<Dialogue> dialogueToDo = new ArrayList<Dialogue>();
   DialogueHandler() {}
@@ -45,6 +61,12 @@ class DialogueHandler {
     
     if (dialogueToDo.size() >0) {
       Dialogue dialogue = dialogueToDo.get(0);
+      
+      if (dialogue instanceof ImageDialogue) {
+        ImageDialogue imageDialogue = (ImageDialogue) dialogue;
+        PImage sprite = loadImage(dataPath(imageDialogue.getFilename()));
+        image(sprite, 20, (height-boxH)-sprite.height);
+      }
       
       fill(200);
       strokeWeight(2);
