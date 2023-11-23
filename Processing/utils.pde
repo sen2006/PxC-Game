@@ -13,9 +13,13 @@ boolean isKeyStringInInv(String keyString) {
   return false;
 }
 
-boolean isKeyStringActiveInScene(String keyString) {
-  if (stateHandler.getState() instanceof Scene) {
-    Scene scene = (Scene)stateHandler.getState();
+boolean isKeyStringActiveInCurrentScene(String keyString) {
+  return isKeyStringActiveInScene(keyString, stateHandler.getState());
+}
+
+boolean isKeyStringActiveInScene(String keyString, State state) {
+  if (state instanceof Scene) {
+    Scene scene = (Scene)state;
     for (Object object : scene.getObjects()) {
       if (object.getKeyString().equals(keyString)) {
         return true;
