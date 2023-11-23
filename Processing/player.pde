@@ -23,9 +23,10 @@ class Player {
 
   //gets called every frame
   void update() {
-    //check if player is outside walkable area
+    //check if state is a scene
     if (stateHandler.getState() instanceof Scene) {
       Scene scene = (Scene)stateHandler.getState();
+      //check if player is outside walkable area
       if (!scene.getWalkableArea().isPointInside((int)x, (int)y)) {
         if (!outsideWalkable) {
           moveTo(x + cos(angle+PI) * 10, y + sin(angle+PI) * 10);
@@ -37,23 +38,22 @@ class Player {
       } else {
         outsideWalkable = false;
       }
+      // lerp to desired sertination
+      x=lerp(x, moveX, walkspeed);
+      y=lerp(y, moveY, walkspeed);
+
+      // temporary player model
+      stroke(0);
+      strokeWeight(1);
+      fill(150);
+      ellipse(x, y, 50, 50);
+      translate(x, y);
+      rotate(angle);
+      strokeWeight(4);
+      stroke(0);
+      line(0, 0, 25, 0);
+      resetMatrix();
     }
-
-    // lerp to desired sertination
-    x=lerp(x, moveX, walkspeed);
-    y=lerp(y, moveY, walkspeed);
-
-    // temporary player model
-    stroke(0);
-    strokeWeight(1);
-    fill(150);
-    ellipse(x, y, 50, 50);
-    translate(x, y);
-    rotate(angle);
-    strokeWeight(4);
-    stroke(0);
-    line(0, 0, 25, 0);
-    resetMatrix();
   }
 
   void handleMousePressed() {

@@ -11,11 +11,16 @@ int oldMillis = 0;
 StateHandler stateHandler;
 DialogueHandler dialogueHandler;
 
+// ===STATES
 
 final State  TEST_SCENE = new  TestScene();
 final State  TEST_SCENE_TWO = new   TestSceneTwo();
 //final State  TABLE_SCENE = new  TableScene();
 //final State FOREST_SCENE = new ForestScene();
+
+// ===CUT SCENES
+
+final State FIRST_CUTSCENE = new BeginingCutScene();
 
 
 void setup() {
@@ -24,13 +29,14 @@ void setup() {
   inventory = new ArrayList<Object>();
 
   stateHandler = new StateHandler( "Game" );
-  stateHandler.changeStateTo( TEST_SCENE );
+  stateHandler.changeStateTo( FIRST_CUTSCENE );
+  //stateHandler.changeStateTo( TEST_SCENE );
 
   dialogueHandler = new DialogueHandler();
-  dialogueHandler.add(new Dialogue("TEST", 50, 2000));
+  /*dialogueHandler.add(new Dialogue("TEST", 50, 2000));
   dialogueHandler.add(new Dialogue("TEST2", 50, 2000));
   dialogueHandler.add(new ImageDialogue("TEST3", 50, 20000, "sprite/dialogue/placeholderMainCar.png"));
-  
+  */
 
   //mention all scenes with doors here
   TEST_SCENE.createDoors();
