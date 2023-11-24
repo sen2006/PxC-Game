@@ -33,6 +33,7 @@ void setup() {
   frameRate(60);
   size(1920, 1080);
   inventory = new ArrayList<Object>();
+
   
   doorSound = new SoundFile(this, dataPath("sound/interaction/door.mp3"));
 
@@ -134,5 +135,6 @@ void Time () {
     stateHandler.changeStateTo( END_GAME_SCENE );
   } else if (stateHandler.getState() instanceof Scene) {
     time -= deltaTime/1000f;
+    time = max(time, 0);
   }
 }

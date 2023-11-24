@@ -10,7 +10,7 @@ class Player {
   float moveX;
   float moveY;
 
-  float walkspeed = 0.04;
+  float walkspeed = 5;
 
   float angle = 0;
 
@@ -42,8 +42,7 @@ class Player {
         outsideWalkable = false;
       }
       // lerp to desired sertination
-      x=lerp(x, moveX, walkspeed);
-      y=lerp(y, moveY, walkspeed);
+      move();
 
       // temporary player model
       stroke(0);
@@ -57,6 +56,18 @@ class Player {
       line(0, 0, 25, 0);
       resetMatrix();
     }
+  }
+
+  void move() {
+    PVector movePos = new PVector(moveX,moveY);
+    
+    movePos.sub(new PVector(x,y));
+    movePos.normalize();
+    movePos.mult(min(walkspeed, dist(x,y,moveX,moveY)));
+    
+    x += movePos.x;
+    y += movePos.y;
+    
   }
 
   void handleMousePressed() {
