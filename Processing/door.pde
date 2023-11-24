@@ -37,6 +37,7 @@ class Door {
   }
   void isPlayerOnDoor() {
     if ( isPointInRectangle (player.getX(), player.getY(), doorX, doorY, doorWidth, doorHeight)) {
+      doorSound.play();
       stateHandler.changeStateTo(tDoor);
       player.teleport(teleportX, teleportY);
     }

@@ -1,4 +1,7 @@
+import processing.sound.*;
 // ============ VARIABLES ============
+
+SoundFile doorSound;
 
 Player player = new Player(100, 100);
 boolean debugMode = false;
@@ -30,6 +33,8 @@ void setup() {
   frameRate(60);
   size(1920, 1080);
   inventory = new ArrayList<Object>();
+  
+  doorSound = new SoundFile(this, dataPath("sound/interaction/door.mp3"));
 
   stateHandler = new StateHandler( "Game" );
   stateHandler.changeStateTo( FIRST_CUTSCENE );
@@ -118,7 +123,7 @@ void Time () {
   textAlign(CENTER);
   fill (0);
   textSize(32);
-  text(floor(time/60) + ":" + floor(time % 60), width/2, 40);
+  text((floor(time/60)>0?(floor(time/60) + ":"):"") + ((time%60 < 10)?"0":"") + floor(time % 60), width/2, 40);
   if (time <= 0) {
     time = 0;
     push();
