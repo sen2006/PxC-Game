@@ -118,7 +118,7 @@ void Time () {
   textAlign(CENTER);
   fill (0);
   textSize(32);
-  text(round(time), width/2, 40);
+  text(floor(time/60) + ":" + floor(time % 60), width/2, 40);
   if (time <= 0) {
     time = 0;
     push();
