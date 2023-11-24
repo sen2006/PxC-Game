@@ -6,7 +6,7 @@ boolean gameOver = false;
 ArrayList<Object> inventory;
 int deltaTime = 0;
 int oldMillis = 0;
-int time = 5;
+float time = 10;
 
 
 // ============ STATE HANDLER AND STATES ============
@@ -81,7 +81,9 @@ void keyTyped() {
 }
 
 void mousePressed() {
-  if(gameOver){return;}
+  if (gameOver) {
+    return;
+  }
   stateHandler.handleMousePressed();
   player.handleMousePressed();
 }
@@ -114,19 +116,17 @@ void debug() {
 void Time () {
   fill (0);
   textSize(32);
-  text(time, width/2, 40);
-  if (time == 0) {
+  text(round(time), width/2, 40);
+  if (time <= 0) {
     time = 0;
-push();
-textMode(CENTER);
-textSize(56);
-text("Game Over", width/2,height/2);
-gameOver = true;
-pop();
+    push();
+    textMode(CENTER);
+    textSize(56);
+    text("Game Over", width/2, height/2);
+    gameOver = true;
+    pop();
     stateHandler.changeStateTo( END_GAME_SCENE );
-    
+  } else if (stateHandler.getState() instanceof Scene){
+    time -= deltaTime/1000f;
   }
-  else if (frameCount % 60 == 0) {
-    time -= 1;
-    }
-  }
+}
