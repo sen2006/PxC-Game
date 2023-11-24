@@ -8,7 +8,7 @@ class Door {
   int teleportX;
   int teleportY;
 
-  Door(int x, int y, int w, int h,State tD, int tX,int tY) {
+  Door(int x, int y, int w, int h, State tD, int tX, int tY) {
     doorX = x;
     doorY = y;
     doorWidth = w;
@@ -24,22 +24,21 @@ class Door {
     rect(doorX, doorY, doorWidth, doorHeight);
     pop();
   }
-  
-    void debug() {
+
+  void debug() {
     rectMode(CORNER);
     strokeWeight(2);
     stroke(50);
-    fill(#23F524,50);
-    rect(doorX,doorY,doorWidth,doorHeight);
-    if (tDoor == null){
+    fill(#23F524, 50);
+    rect(doorX, doorY, doorWidth, doorHeight);
+    if (tDoor == null) {
       println("error door state is null");
     }
   }
-  void isPlayerOnDoor(){
-  if( isPointInRectangle (player.getX(),player.getY(),doorX,doorY,doorWidth,doorHeight)){
-    stateHandler.changeStateTo(tDoor);
-    player.teleport(teleportX,teleportY);
-  }
-
+  void isPlayerOnDoor() {
+    if ( isPointInRectangle (player.getX(), player.getY(), doorX, doorY, doorWidth, doorHeight)) {
+      stateHandler.changeStateTo(tDoor);
+      player.teleport(teleportX, teleportY);
+    }
   }
 }

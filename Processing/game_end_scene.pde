@@ -1,26 +1,24 @@
 
 
- class EndGameScene extends Scene
+class EndGameScene extends Scene
 {
-  
+
 
   EndGameScene() {
     super( "sprite/scene/gameoverscreen.png", new WalkableArea(new ArrayList<WalkableSquare>()));
-    
-
   }
 
   public void doStepWhileInState()
   {
     super.doStepWhileInState();
-    
+
     rectMode(CORNER);
     fill(#2DB209);
-    stroke(0,0);
+    stroke(0, 0);
     //rect(25,25,250,450);
     //rect(225,225,250,250);
-    
-    for(Object object : objects) {
+
+    for (Object object : objects) {
       object.draw();
     }
   }

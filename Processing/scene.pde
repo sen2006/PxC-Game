@@ -25,7 +25,7 @@ class Scene extends State
     return walkableArea;
   }
 
-  
+
   public void doStepWhileInState()
   {
     image( background, 0, 0, width, height );
@@ -37,7 +37,7 @@ class Scene extends State
         objects.remove(i);
       }
     }
-    
+
     //check all doors and if the player should move scene
     for (Door door : doorList) {
       door.isPlayerOnDoor();
@@ -60,7 +60,7 @@ class Scene extends State
       }
     }
   }
-  
+
   ArrayList<Object> getObjects() {
     return objects;
   }

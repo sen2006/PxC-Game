@@ -12,14 +12,14 @@ class CutScene extends State {
       PImage sprite = loadImage(dataPath(frame.getFilename()));
       image(sprite, 0, 0);
       noStroke();
-      fill(0,max(0, 255f-frame.getScreenTimeLeft()/2)+max(0, 255f-(frame.getMaxTime()-frame.getScreenTimeLeft())/2));
-      rect(0,0,width,height);
+      fill(0, max(0, 255f-frame.getScreenTimeLeft()/2)+max(0, 255f-(frame.getMaxTime()-frame.getScreenTimeLeft())/2));
+      rect(0, 0, width, height);
       frame.decreaseTimer ();
       if (frame.getScreenTimeLeft() <= 0) {
         frames.remove(0);
       }
     } else {
-       stateHandler.changeStateTo(endState);
+      stateHandler.changeStateTo(endState);
     }
   }
 }
@@ -37,7 +37,7 @@ class CutSceneFrame {
   int getScreenTimeLeft() {
     return screenTimeMS;
   }
-  
+
   int getMaxTime() {
     return totalTime;
   }

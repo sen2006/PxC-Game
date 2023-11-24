@@ -4,14 +4,14 @@ class InvisibleButton {
   int w;
   int h;
 
-  InvisibleButton(int newX, int newY , int newW, int newH) {
+  InvisibleButton(int newX, int newY, int newW, int newH) {
     x = newX;
     y = newY;
     w = newW;
     h = newH;
   }
-  
-   boolean isPointInside( int px, int py ) {
+
+  boolean isPointInside( int px, int py ) {
     return isPointInRectangle( px, py, x, y, w, h);
   }
 }

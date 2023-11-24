@@ -6,7 +6,7 @@ boolean gameOver = false;
 ArrayList<Object> inventory;
 int deltaTime = 0;
 int oldMillis = 0;
-float time = 10;
+float time = 300;
 
 
 // ============ STATE HANDLER AND STATES ============
@@ -17,6 +17,7 @@ DialogueHandler dialogueHandler;
 
 final State  TEST_SCENE = new  TestScene();
 final State  TEST_SCENE_TWO = new   TestSceneTwo();
+
 final State  END_GAME_SCENE = new  EndGameScene();
 //final State FOREST_SCENE = new ForestScene();
 
@@ -37,7 +38,7 @@ void setup() {
   dialogueHandler = new DialogueHandler();
   dialogueHandler.add(new Dialogue("TEST", 50, 2000));
   dialogueHandler.add(new Dialogue("TEST2", 50, 2000));
-  dialogueHandler.add(new ImageDialogue("TEST3", 50, 20000, "sprite/dialogue/placeholderMainCar.png"));
+  dialogueHandler.add(new ImageDialogue("TEST3", 50, 2000, "sprite/dialogue/placeholderMainCar.png"));
 
   //mention all scenes with doors here
   TEST_SCENE.createDoors();
@@ -79,7 +80,6 @@ void keyReleased() {
 void keyTyped() {
   stateHandler.handleKeyTyped();
 }
-
 void mousePressed() {
   if (gameOver) {
     return;
@@ -99,11 +99,11 @@ void mouseDragged() {
 void mouseMoved() {
   stateHandler.handleMouseMoved();
 }
-
 void mouseWheel(MouseEvent event) {
   stateHandler.handleMouseWheel( event );
 }
 
+// debugger
 void debug() {
   if (stateHandler.getState() instanceof Scene) {
     Scene scene = (Scene)stateHandler.getState();
@@ -113,20 +113,21 @@ void debug() {
   }
 }
 
+// end game timer
 void Time () {
+  textAlign(CENTER);
   fill (0);
   textSize(32);
   text(round(time), width/2, 40);
   if (time <= 0) {
     time = 0;
     push();
-    textMode(CENTER);
     textSize(56);
     text("Game Over", width/2, height/2);
     gameOver = true;
     pop();
     stateHandler.changeStateTo( END_GAME_SCENE );
-  } else if (stateHandler.getState() instanceof Scene){
+  } else if (stateHandler.getState() instanceof Scene) {
     time -= deltaTime/1000f;
   }
 }

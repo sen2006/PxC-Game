@@ -24,7 +24,9 @@ class Player {
   //gets called every frame
   void update() {
     //check if state is a scene
-    if (gameOver) {return;}
+    if (gameOver) {
+      return;
+    }
     if (stateHandler.getState() instanceof Scene) {
       Scene scene = (Scene)stateHandler.getState();
       //check if player is outside walkable area
@@ -59,7 +61,7 @@ class Player {
 
   void handleMousePressed() {
     // check if point is inside the walkable area
-    if (mouseButton == LEFT && !outsideWalkable && stateHandler.getState() instanceof Scene) {
+    if (!dialogueHandler.isPlaying() &&mouseButton == LEFT && !outsideWalkable && stateHandler.getState() instanceof Scene) {
       Scene scene = (Scene)stateHandler.getState();
       WalkableArea area = scene.getWalkableArea();
       if (area.isPointInside(mouseX, mouseY)) {

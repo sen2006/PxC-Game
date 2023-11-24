@@ -56,8 +56,9 @@ class State
   }
   public void handleKeyReleased() {
   }
-  
-  public void createDoors() {}
+
+  public void createDoors() {
+  }
 }
 
 
@@ -166,9 +167,9 @@ class StateHandler
   String getName() {
     return name;
   }
-  
+
   State getState() {
-    return currentState; 
+    return currentState;
   }
 
   String getStateName() {
