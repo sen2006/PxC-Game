@@ -52,6 +52,7 @@ class DialogueHandler {
   int boxW;
   
   void draw() {
+    if(gameOver){return;}
     if (boxH == 0 || boxW == 0 ) {
       boxX = 0;
       boxY = height-200;
