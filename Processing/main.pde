@@ -6,7 +6,7 @@ boolean gameOver = false;
 ArrayList<Object> inventory;
 int deltaTime = 0;
 int oldMillis = 0;
-float time = 10;
+float time = 300;
 
 
 // ============ STATE HANDLER AND STATES ============
@@ -37,7 +37,7 @@ void setup() {
   dialogueHandler = new DialogueHandler();
   dialogueHandler.add(new Dialogue("TEST", 50, 2000));
   dialogueHandler.add(new Dialogue("TEST2", 50, 2000));
-  dialogueHandler.add(new ImageDialogue("TEST3", 50, 20000, "sprite/dialogue/placeholderMainCar.png"));
+  dialogueHandler.add(new ImageDialogue("TEST3", 50, 2000, "sprite/dialogue/placeholderMainCar.png"));
 
   //mention all scenes with doors here
   TEST_SCENE.createDoors();
@@ -116,7 +116,7 @@ void debug() {
 void Time () {
   fill (0);
   textSize(32);
-  text(round(time), width/2, 40);
+  text(floor(time/60) + ":" + floor(time % 60), width/2, 40);
   if (time <= 0) {
     time = 0;
     push();
