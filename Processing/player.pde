@@ -24,6 +24,7 @@ class Player {
   //gets called every frame
   void update() {
     //check if state is a scene
+    if (gameOver) {return;}
     if (stateHandler.getState() instanceof Scene) {
       Scene scene = (Scene)stateHandler.getState();
       //check if player is outside walkable area
