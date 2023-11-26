@@ -7,7 +7,13 @@ class WalkableArea {
 
   boolean isPointInside( int px, int py ) {
     for (WalkableSquare square : squareList) {
-      if (square.isPointInside(px, py)) {
+      if (square instanceof Obstacle  && square.isPointInside(px, py)) {
+        return false;
+      }
+    }
+
+    for (WalkableSquare square : squareList) {
+      if (square instanceof WalkableSquare && square.isPointInside(px, py)) {
         return true;
       }
     }
@@ -46,6 +52,20 @@ class WalkableSquare {
     strokeWeight(2);
     stroke(50);
     fill(#E124FF, 50);
+    rect(x, y, w, h);
+  }
+}
+
+class Obstacle extends WalkableSquare {
+  Obstacle(int newX, int newY, int newW, int newH) {
+    super(newX, newY, newW, newH);
+  }
+  
+    void render() {
+    rectMode(CORNER);
+    strokeWeight(2);
+    stroke(50);
+    fill(255,0,0, 50);
     rect(x, y, w, h);
   }
 }

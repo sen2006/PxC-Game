@@ -105,58 +105,58 @@ class TogleableObject extends Object {
   }
 }
 
-class HighlightObject extends Object {
-  color hColor;
+//class HighlightObject extends Object {
+//  color hColor;
 
-  HighlightObject(int x, int y, boolean hideWhenCollected, boolean addToInv, String keyS, String newFilename, color hilightColor) {
-    super(x, y, hideWhenCollected, addToInv, keyS, newFilename);
-    hColor = hilightColor;
-  }
+//  HighlightObject(int x, int y, boolean hideWhenCollected, boolean addToInv, String keyS, String newFilename, color hilightColor) {
+//    super(x, y, hideWhenCollected, addToInv, keyS, newFilename);
+//    hColor = hilightColor;
+//  }
 
-  HighlightObject(int x, int y, String keyS, String newFilename, color hilightColor) {
-    super(x, y, keyS, newFilename);
-    hColor = hilightColor;
-  }
+//  HighlightObject(int x, int y, String keyS, String newFilename, color hilightColor) {
+//    super(x, y, keyS, newFilename);
+//    hColor = hilightColor;
+//  }
 
-  HighlightObject(int x, int y, boolean addToInv, String keyS, String newFilename, color hilightColor) {
-    super(x, y, addToInv, keyS, newFilename);
-    hColor = hilightColor;
-  }
+//  HighlightObject(int x, int y, boolean addToInv, String keyS, String newFilename, color hilightColor) {
+//    super(x, y, addToInv, keyS, newFilename);
+//    hColor = hilightColor;
+//  }
 
-  void draw() {
-    super.draw();
-    float distance = dist(objectX+sprite.height/2, objectY+sprite.width/2, player.getX(), player.getY());
-    if (isPointInRectangle(mouseX, mouseY, objectX, objectY, sprite.height, sprite.width) && distance < player.getInteractionRadius()) {
-      noFill();
-      strokeWeight(3);
-      stroke(hColor, 205+ (50*sin(millis()/500f)));
-      rect(objectX, objectY, sprite.height, sprite.width);
-    }
-  }
-}
+//  void draw() {
+//    super.draw();
+//    float distance = dist(objectX+sprite.height/2, objectY+sprite.width/2, player.getX(), player.getY());
+//    if (isPointInRectangle(mouseX, mouseY, objectX, objectY, sprite.height, sprite.width) && distance < player.getInteractionRadius()) {
+//      noFill();
+//      strokeWeight(3);
+//      stroke(hColor, 205+ (50*sin(millis()/500f)));
+//      rect(objectX, objectY, sprite.height, sprite.width);
+//    }
+//  }
+//}
 
-class HighlightTogleableObject extends TogleableObject {
-  color hColor;
-  HighlightTogleableObject(int x, int y, String keyS, String newFilename, color hilightColor) {
-    super(x, y, keyS, newFilename);
-    hColor = hilightColor;
-  }
+//class HighlightTogleableObject extends TogleableObject {
+//  color hColor;
+//  HighlightTogleableObject(int x, int y, String keyS, String newFilename, color hilightColor) {
+//    super(x, y, keyS, newFilename);
+//    hColor = hilightColor;
+//  }
 
-  void checkCol() {
-    float distance = dist(objectX+sprite.height/2, objectY+sprite.width/2, player.getX(), player.getY());
-    if (isPointInRectangle(mouseX, mouseY, objectX, objectY, sprite.height, sprite.width) && distance < player.getInteractionRadius()) {
-      collected = !collected;
-    }
-  }
+//  void checkCol() {
+//    float distance = dist(objectX+sprite.height/2, objectY+sprite.width/2, player.getX(), player.getY());
+//    if (isPointInRectangle(mouseX, mouseY, objectX, objectY, sprite.height, sprite.width) && distance < player.getInteractionRadius()) {
+//      collected = !collected;
+//    }
+//  }
 
-  void draw() {
-    super.draw();
-    float distance = dist(objectX+sprite.height/2, objectY+sprite.width/2, player.getX(), player.getY());
-    if (isPointInRectangle(mouseX, mouseY, objectX, objectY, sprite.height, sprite.width) && distance < player.getInteractionRadius()) {
-      noFill();
-      strokeWeight(3);
-      stroke(hColor, 205+ (50*sin(millis()/500f)));
-      rect(objectX, objectY, sprite.height, sprite.width);
-    }
-  }
-}
+//  void draw() {
+//    super.draw();
+//    float distance = dist(objectX+sprite.height/2, objectY+sprite.width/2, player.getX(), player.getY());
+//    if (isPointInRectangle(mouseX, mouseY, objectX, objectY, sprite.height, sprite.width) && distance < player.getInteractionRadius()) {
+//      noFill();
+//      strokeWeight(3);
+//      stroke(hColor, 205+ (50*sin(millis()/500f)));
+//      rect(objectX, objectY, sprite.height, sprite.width);
+//    }
+//  }
+//}

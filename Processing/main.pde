@@ -3,7 +3,7 @@ import processing.sound.*;
 
 SoundFile doorSound;
 
-Player player = new Player(100, 100);
+Player player = new Player(0, 0);
 boolean debugMode = false;
 boolean gameOver = false;
 ArrayList<Object> inventory;
@@ -21,6 +21,10 @@ DialogueHandler dialogueHandler;
 final State  TEST_SCENE = new  TestScene();
 final State  TEST_SCENE_TWO = new   TestSceneTwo();
 
+final State ENTRANCE = new Entrance();
+final State HALL_LEFT = new HallLeft();
+final State HALL_RIGHT = new HallRight();
+
 final State  END_GAME_SCENE = new  EndGameScene();
 //final State FOREST_SCENE = new ForestScene();
 
@@ -34,21 +38,26 @@ void setup() {
   size(1920, 1080);
   inventory = new ArrayList<Object>();
 
-  
+
   doorSound = new SoundFile(this, dataPath("sound/interaction/door.mp3"));
 
   stateHandler = new StateHandler( "Game" );
-  stateHandler.changeStateTo( FIRST_CUTSCENE );
-  //stateHandler.changeStateTo( TEST_SCENE );
+  
+  // STARTING STATE
+  stateHandler.changeStateTo( ENTRANCE );
+  player.teleport(900,900);
+  
 
   dialogueHandler = new DialogueHandler();
-  dialogueHandler.add(new Dialogue("TEST", 50, 2000));
-  dialogueHandler.add(new Dialogue("TEST2", 50, 2000));
-  dialogueHandler.add(new ImageDialogue("TEST3", 50, 2000, "sprite/dialogue/placeholderMainCar.png"));
+
 
   //mention all scenes with doors here
   TEST_SCENE.createDoors();
   TEST_SCENE_TWO.createDoors();
+
+  ENTRANCE.createDoors();
+  HALL_LEFT.createDoors();
+  HALL_RIGHT.createDoors();
 }
 
 
