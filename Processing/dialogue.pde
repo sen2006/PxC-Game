@@ -58,6 +58,8 @@ class DialogueHandler {
   int boxH;
   int boxW;
 
+  PImage sprite;
+
   void draw() {
     if (gameOver) {
       return;
@@ -74,7 +76,9 @@ class DialogueHandler {
 
       if (dialogue instanceof ImageDialogue) {
         ImageDialogue imageDialogue = (ImageDialogue) dialogue;
-        PImage sprite = loadImage(dataPath(imageDialogue.getFilename()));
+        if (sprite == null) {
+          sprite = loadImage(dataPath(imageDialogue.getFilename()));
+        }
         image(sprite, 20, (height-boxH)-sprite.height);
       }
 
@@ -90,6 +94,7 @@ class DialogueHandler {
       dialogue.decreaseTimer();
       if (dialogue.getScreenTimeLeft() <= 0) {
         dialogueToDo.remove(0);
+        sprite = null;
       }
     }
   }
