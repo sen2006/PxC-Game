@@ -131,7 +131,7 @@ void debug() {
 // end game timer
 void Time () {
   textAlign(CENTER);
-  fill (0);
+  fill (255);
   textSize(32);
   text((floor(time/60)>0?(floor(time/60) + ":"):"") + ((time%60 < 10)?"0":"") + floor(time % 60), width/2, 40);
   if (time <= 0) {

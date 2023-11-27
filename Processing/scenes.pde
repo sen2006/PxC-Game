@@ -10,6 +10,7 @@ class Entrance extends Scene
     super( "sprite/scene/entranceplaceholder.png", new WalkableArea(new ArrayList<WalkableSquare>()));
 
     walkableArea.add(new WalkableSquare(650, 330, 550, 600));
+    walkableArea.add(new WalkableSquare(800, 230, 120, 100));
     walkableArea.add(new Obstacle(1065, 850, 130,80));
   }
 
@@ -23,7 +24,7 @@ class Entrance extends Scene
   }
 
   void createDoors() {
-    doorList.add(new Door(800, 320, 120, 50, HALL_LEFT, 1420, 740));
+    doorList.add(new Door(800, 320, 140, 50, HALL_LEFT, 1420, 740));
   }
 
   void handleMousePressed() {
@@ -60,7 +61,7 @@ class HallLeft extends Scene
     doorList.add(new Door(1360, 750, 130, 50, ENTRANCE, 860, 380));
     doorList.add(new Door(1480, 650, 100, 130, HALL_RIGHT, 545, 760, false));
     ArrayList<Dialogue> dialogueList = new ArrayList<>();
-    dialogueList.add(new ImageDialogue("I feel no need to go here.", 50, 1600, "sprite/dialogue/placeholdermaincar.png"));
+    dialogueList.add(new ImageDialogue("I feel no need to go here.", 50, 1600, "sprite/dialogue/placeholderMainCar.png"));
     doorList.add(new DialogueLockedDoor(200, 440, 240, 235, dialogueList, 300, 680));
   }
 
@@ -96,7 +97,7 @@ class HallRight extends Scene
   void createDoors() {
     doorList.add(new Door(480, 710, 60, 130, HALL_LEFT, 1470, 720,false));
     ArrayList<Dialogue> dialogueList = new ArrayList<>();
-    dialogueList.add(new ImageDialogue("I feel no need to go here.", 50, 1600, "sprite/dialogue/placeholdermaincar.png"));
+    dialogueList.add(new ImageDialogue("I feel no need to go here.", 50, 1600, "sprite/dialogue/placeholderMainCar.png"));
     doorList.add(new DialogueLockedDoor(1150, 600, 290, 140, dialogueList, 1280, 750));
   }
 
