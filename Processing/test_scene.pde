@@ -46,11 +46,11 @@ class TestSceneTwo extends Scene
     walkableArea.add(new WalkableSquare(250, 250, 200, 200));
 
     objects.add(new TogleableObject(175, 300, "", "sprite/object/placeholders/placeholder.png"));
-    
+
     ArrayList<Dialogue> dialogueList = new ArrayList<>();
     dialogueList.add(new Dialogue("NPC TEST", 50, 2000));
     dialogueList.add(new Dialogue("NPC TEST 2", 50, 2000));
-    objects.add(new NPC(160,160, "", "sprite/object/placeholders/placeholdernpc.png" , dialogueList));
+    objects.add(new NPC(160, 160, "", "sprite/object/placeholders/placeholdernpc.png", dialogueList));
   }
 
   public void doStepWhileInState()

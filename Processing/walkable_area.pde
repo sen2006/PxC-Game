@@ -60,12 +60,12 @@ class Obstacle extends WalkableSquare {
   Obstacle(int newX, int newY, int newW, int newH) {
     super(newX, newY, newW, newH);
   }
-  
-    void render() {
+
+  void render() {
     rectMode(CORNER);
     strokeWeight(2);
     stroke(50);
-    fill(255,0,0, 50);
+    fill(255, 0, 0, 50);
     rect(x, y, w, h);
   }
 }

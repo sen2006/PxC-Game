@@ -59,15 +59,14 @@ class Player {
   }
 
   void move() {
-    PVector movePos = new PVector(moveX,moveY);
-    
-    movePos.sub(new PVector(x,y));
+    PVector movePos = new PVector(moveX, moveY);
+
+    movePos.sub(new PVector(x, y));
     movePos.normalize();
-    movePos.mult(min(walkspeed, dist(x,y,moveX,moveY)));
-    
+    movePos.mult(min(walkspeed, dist(x, y, moveX, moveY)));
+
     x += movePos.x;
     y += movePos.y;
-    
   }
 
   void handleMousePressed() {
@@ -112,7 +111,7 @@ class Player {
   float getY() {
     return y;
   }
-  
+
   float getMoveX() {
     return moveX;
   }

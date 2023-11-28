@@ -59,8 +59,8 @@ class State
 
   public void createDoors() {
   }
-  
-  public void loadVideo() { 
+
+  public void loadVideo() {
   }
 }
 

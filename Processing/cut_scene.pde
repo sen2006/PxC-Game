@@ -26,6 +26,12 @@ class CutScene extends State {
       stateHandler.changeStateTo(endState);
     }
   }
+
+  void handleMousePressed() {
+    if (frames.size()>0) {
+      frames.remove(0);
+    }
+  }
 }
 
 
@@ -54,6 +60,10 @@ class VideoCutScene extends State {
       video.read();
       image(video, width/2-video.width/2, height/2-video.height/2);
     }
+  }
+
+  void handleMousePressed() {
+    stateHandler.changeStateTo(endState);
   }
 
   void loadVideo() {

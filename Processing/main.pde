@@ -41,21 +41,21 @@ final State TESTVIDEO = new TestVideoScene();
 void setup() {
   frameRate(60);
   size(1920, 1080);
-  
+
   // show loading screen
   textAlign(CENTER);
   textSize(100);
   background(0);
   fill(255);
-  text("LOADING", 0,0,width,height);
-  
+  text("LOADING", 0, 0, width, height);
+
   inventory = new ArrayList<Object>();
 
   doorSound = new SoundFile(this, dataPath("sound/interaction/door.mp3"));
 
   stateHandler = new StateHandler( "Game" );
   dialogueHandler = new DialogueHandler();
-  
+
   // STARTING STATE and position
   stateHandler.changeStateTo( ENTRANCE );
   player.teleport(900, 900);
@@ -84,9 +84,7 @@ void draw() {
   if (debugMode) debug();
 
   dialogueHandler.draw();
-  if (stateHandler.getState() instanceof Scene) {
-    Time();
-  }
+  if (!gameOver && stateHandler.getState() instanceof Scene) Time();
 }
 
 void getDeltaTime() {
@@ -141,10 +139,10 @@ void debug() {
     scene.getWalkableArea().render();
     scene.debug();
     player.debug();
-    
+
     textSize(40);
     fill(255);
-    text ("FPS: "+nf(frameRate, 0, 2),200,50);
+    text ("FPS: "+nf(frameRate, 0, 2), 200, 50);
   }
 }
 
