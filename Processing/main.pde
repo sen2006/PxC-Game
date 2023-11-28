@@ -39,6 +39,7 @@ final State TESTVIDEO = new TestVideoScene();
 
 
 void setup() {
+  
   frameRate(60);
   size(1920, 1080);
 
@@ -115,6 +116,7 @@ void mousePressed() {
   }
   stateHandler.handleMousePressed();
   player.handleMousePressed();
+  dialogueHandler.handleMousePressed();
 }
 void mouseClicked() {
   stateHandler.handleMouseClicked();

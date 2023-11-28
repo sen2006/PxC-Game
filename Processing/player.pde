@@ -63,7 +63,7 @@ class Player {
 
     movePos.sub(new PVector(x, y));
     movePos.normalize();
-    movePos.mult(min(walkspeed, dist(x, y, moveX, moveY)));
+    movePos.mult(min(walkspeed*deltaTime/10f, dist(x, y, moveX, moveY)));
 
     x += movePos.x;
     y += movePos.y;

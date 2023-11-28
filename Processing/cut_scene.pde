@@ -27,7 +27,7 @@ class CutScene extends State {
     }
   }
 
-  void handleMousePressed() {
+  public void handleMousePressed() {
     if (frames.size()>0) {
       frames.remove(0);
     }
@@ -62,7 +62,7 @@ class VideoCutScene extends State {
     }
   }
 
-  void handleMousePressed() {
+  public void handleMousePressed() {
     stateHandler.changeStateTo(endState);
   }
 

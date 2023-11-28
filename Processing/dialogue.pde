@@ -99,6 +99,12 @@ class DialogueHandler {
     }
   }
 
+  void handleMousePressed() {
+    if (dialogueToDo.size()>0) {
+      dialogueToDo.remove(0);
+    }
+  }
+
   void add(Dialogue dialogue) {
     dialogueToDo.add(dialogue);
   }
