@@ -1,4 +1,6 @@
 import processing.sound.*;
+import processing.video.*;
+
 // ============ VARIABLES ============
 
 SoundFile doorSound;
@@ -44,7 +46,6 @@ void setup() {
   doorSound = new SoundFile(this, dataPath("sound/interaction/door.mp3"));
 
   stateHandler = new StateHandler( "Game" );
-
   dialogueHandler = new DialogueHandler();
 
   // STARTING STATE and position
@@ -59,6 +60,7 @@ void setup() {
   HALL_LEFT.createDoors();
   HALL_RIGHT.createDoors();
   KITCHEN.createDoors();
+  DINER.createDoors();
 }
 
 

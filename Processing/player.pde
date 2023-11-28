@@ -112,6 +112,13 @@ class Player {
   float getY() {
     return y;
   }
+  
+  float getMoveX() {
+    return moveX;
+  }
+  float getMoveY() {
+    return moveY;
+  }
 
   //debug rendering
   void debug() {
