@@ -40,7 +40,7 @@ final State FIRST_CUTSCENE = new BeginingCutScene();
 void setup() {
   frameRate(60);
   size(1920, 1080);
-  fullScreen();
+  //fullScreen();
   inventory = new ArrayList<Object>();
 
   doorSound = new SoundFile(this, dataPath("sound/interaction/door.mp3"));
