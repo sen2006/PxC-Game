@@ -156,6 +156,7 @@ class DiningRoom extends Scene
     super( "sprite/scene/diningplaceholder.png", new WalkableArea(new ArrayList<WalkableSquare>()));
 
     walkableArea.add(new WalkableSquare(290, 465, 1380, 330));
+    walkableArea.add(new WalkableSquare(290, 790, 520, 50));
   }
 
   public void doStepWhileInState()
@@ -168,7 +169,7 @@ class DiningRoom extends Scene
   }
 
   void createDoors() {
-    doorList.add(new Door(290, 465, 140, 50, HALL_LEFT, 990, 700));
+    doorList.add(new Door(290, 790, 520, 50, KITCHEN, 990, 700));
 
   }
 
