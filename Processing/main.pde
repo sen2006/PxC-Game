@@ -35,22 +35,34 @@ final State  END_GAME_SCENE = new  EndGameScene();
 // ===CUT SCENES
 
 final State FIRST_CUTSCENE = new BeginingCutScene();
+final State TESTVIDEO = new TestVideoScene();
 
 
 void setup() {
   frameRate(60);
   size(1920, 1080);
-  //fullScreen();
+  
+  // show loading screen
+  textAlign(CENTER);
+  textSize(100);
+  background(0);
+  fill(255);
+  text("LOADING", 0,0,width,height);
+  
   inventory = new ArrayList<Object>();
 
   doorSound = new SoundFile(this, dataPath("sound/interaction/door.mp3"));
 
   stateHandler = new StateHandler( "Game" );
   dialogueHandler = new DialogueHandler();
-
+  
   // STARTING STATE and position
   stateHandler.changeStateTo( ENTRANCE );
   player.teleport(900, 900);
+
+  //Load all videos
+  TESTVIDEO.loadVideo();
+
 
   //mention all scenes with doors here
   TEST_SCENE.createDoors();
@@ -72,8 +84,9 @@ void draw() {
   if (debugMode) debug();
 
   dialogueHandler.draw();
-
-  Time();
+  if (stateHandler.getState() instanceof Scene) {
+    Time();
+  }
 }
 
 void getDeltaTime() {
@@ -128,6 +141,10 @@ void debug() {
     scene.getWalkableArea().render();
     scene.debug();
     player.debug();
+    
+    textSize(40);
+    fill(255);
+    text ("FPS: "+nf(frameRate, 0, 2),200,50);
   }
 }
 
@@ -142,7 +159,7 @@ void Time () {
     text("Game Over", width/2, height/2);
     gameOver = true;
     stateHandler.changeStateTo( END_GAME_SCENE );
-  } else if (stateHandler.getState() instanceof Scene) {
+  } else {
     time -= deltaTime/1000f;
     time = max(time, 0);
   }

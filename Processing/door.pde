@@ -44,9 +44,6 @@ class Door {
     stroke(50);
     fill(#23F524, 50);
     rect(doorX, doorY, doorWidth, doorHeight);
-    if (tDoor == null) {
-      println("error door state is null");
-    }
   }
   void isPlayerOnDoor() {
     if ( isPointInRectangle (player.getX(), player.getY(), doorX, doorY, doorWidth, doorHeight) && isPointInRectangle (player.getMoveX(), player.getMoveY(), doorX, doorY, doorWidth, doorHeight)) {

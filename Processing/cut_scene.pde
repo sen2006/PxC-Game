@@ -28,6 +28,7 @@ class CutScene extends State {
   }
 }
 
+
 class VideoCutScene extends State {
   String filename;
   Movie video;
@@ -40,16 +41,24 @@ class VideoCutScene extends State {
 
   public void doStepWhileInState() {
     if (video==null) {
-      Movie video = new Movie(main.this, dataPath(filename));
-      if (!played && !video.isPlaying()) {
-        video.play();
-      } else if (played) {
-        stateHandler.changeStateTo(endState);
-      }
-      if (video.available()) {
-        video.read();
-        image(video, 0, 0);
-      }
+      video = new Movie(main.this, dataPath(filename));
+    }
+    if (!played && !video.isPlaying()) {
+      video.play();
+      played = true;
+    } else if (played && !video.isPlaying()) {
+      stateHandler.changeStateTo(endState);
+    }
+    if (video.available()) {
+      background(0);
+      video.read();
+      image(video, width/2-video.width/2, height/2-video.height/2);
+    }
+  }
+
+  void loadVideo() {
+    if (video==null) {
+      video = new Movie(main.this, dataPath(filename));
     }
   }
 }
