@@ -91,6 +91,7 @@ class HallRight extends Scene
     super( "sprite/scene/hallrightplaceholder.png", new WalkableArea(new ArrayList<WalkableSquare>()));
 
     walkableArea.add(new WalkableSquare(480, 710, 955, 130));
+    // LOCKED DOOR
     walkableArea.add(new WalkableSquare(1150, 600, 290, 140));
   }
 
@@ -127,6 +128,7 @@ class Kitchen extends Scene
     super( "sprite/scene/kitchenplaceholder.png", new WalkableArea(new ArrayList<WalkableSquare>()));
 
     walkableArea.add(new WalkableSquare(240, 495, 1400, 480));
+    // DINER DOOR V
     walkableArea.add(new WalkableSquare(240, 120, 540, 380));
   }
 
@@ -161,6 +163,7 @@ class DiningRoom extends Scene
     super( "sprite/scene/diningplaceholder.png", new WalkableArea(new ArrayList<WalkableSquare>()));
 
     walkableArea.add(new WalkableSquare(290, 465, 1380, 330));
+    // KITCHEN DOOR V
     walkableArea.add(new WalkableSquare(290, 790, 540, 100));
   }
 
