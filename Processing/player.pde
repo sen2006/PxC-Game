@@ -1,4 +1,5 @@
 class Player {
+  Direction walkDirection;
   boolean outsideWalkable = false;
 
   int interactionRadius = 50;
@@ -28,6 +29,7 @@ class Player {
       return;
     }
     if (stateHandler.getState() instanceof Scene) {
+      setDirection();
       Scene scene = (Scene)stateHandler.getState();
       //check if player is outside walkable area
       if (!scene.getWalkableArea().isPointInside((int)x, (int)y)) {
@@ -67,6 +69,19 @@ class Player {
 
     x += movePos.x;
     y += movePos.y;
+  }
+  
+  void setDirection() {
+    if (angle>=(-PI/4)*3&&angle<(-PI/4)){
+      walkDirection = Direction.UP;
+    } else if (angle>=(-PI/4)&&angle<(PI/4)) {
+      walkDirection = Direction.RIGHT;
+    } else if (angle>=(PI/4)&&angle<(PI/4)*3) {
+      walkDirection = Direction.DOWN;
+    } else {
+      walkDirection = Direction.LEFT;
+    } 
+    //println(walkDirection +" : " + angle);
   }
 
   void handleMousePressed() {

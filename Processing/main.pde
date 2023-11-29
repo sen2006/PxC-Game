@@ -13,6 +13,9 @@ int deltaTime = 0;
 int oldMillis = 0;
 float time = 300;
 
+// ============ ENUMS ============
+
+enum Direction{UP,DOWN,LEFT,RIGHT}
 
 // ============ STATE HANDLER AND STATES ============
 StateHandler stateHandler;
