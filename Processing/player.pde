@@ -11,7 +11,7 @@ class Player {
   float moveX;
   float moveY;
 
-  float walkspeed = 5;
+  float walkspeed = 4;
 
   float angle = 0;
 

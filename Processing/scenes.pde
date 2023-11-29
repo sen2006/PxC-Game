@@ -174,7 +174,7 @@ class DiningRoom extends Scene
   }
 
   void createDoors() {
-    doorList.add(new Door(290, 790, 540, 100, HALL_LEFT, 990, 700));
+    doorList.add(new Door(290, 790, 540, 100, KITCHEN, 540, 300, false));
   }
 
   void handleMousePressed() {
