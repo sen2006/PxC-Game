@@ -2,7 +2,7 @@ class Player {
   Direction walkDirection;
   boolean outsideWalkable = false;
 
-  int interactionRadius = 50;
+  int interactionRadius = 150;
 
   PImage sprite;
   float x;
@@ -20,6 +20,7 @@ class Player {
     y = startY;
     moveX = x;
     moveY = y;
+    
   }
 
   //gets called every frame
@@ -52,6 +53,7 @@ class Player {
         case DOWN:
           break;
         case RIGHT:
+          
           break;
         case LEFT:
           break;

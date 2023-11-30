@@ -157,6 +157,8 @@ void debug() {
     textSize(40);
     fill(255);
     text ("FPS: "+nf(frameRate, 0, 2), 200, 50);
+    
+    text("X:" + nf(mouseX,0,2) + " - " + "Y:" + nf(mouseY,0,2),200,200);
   }
 }
 
