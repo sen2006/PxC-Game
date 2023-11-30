@@ -7,7 +7,7 @@ class Entrance extends Scene
 
 
   Entrance() {
-    super( "sprite/scene/entranceplaceholder.png", new WalkableArea(new ArrayList<WalkableSquare>()));
+    super( "sprite/scene/Entrance_ready_png.png", new WalkableArea(new ArrayList<WalkableSquare>()));
 
     walkableArea.add(new WalkableSquare(650, 330, 550, 600));
     //Hall Door V
@@ -44,7 +44,7 @@ class HallLeft extends Scene
 
 
   HallLeft() {
-    super( "sprite/scene/hallleftplaceholder.png", new WalkableArea(new ArrayList<WalkableSquare>()));
+    super( "sprite/scene/Hallwayleft_ready_png.png", new WalkableArea(new ArrayList<WalkableSquare>()));
 
     walkableArea.add(new WalkableSquare(200, 650, 1350, 130));
     // Blocked Door V
@@ -88,7 +88,7 @@ class HallRight extends Scene
 
 
   HallRight() {
-    super( "sprite/scene/hallrightplaceholder.png", new WalkableArea(new ArrayList<WalkableSquare>()));
+    super( "sprite/scene/Hallwayright_ready_png.png", new WalkableArea(new ArrayList<WalkableSquare>()));
 
     walkableArea.add(new WalkableSquare(480, 710, 955, 130));
     // LOCKED DOOR
@@ -125,7 +125,7 @@ class Kitchen extends Scene
 
 
   Kitchen() {
-    super( "sprite/scene/kitchenplaceholder.png", new WalkableArea(new ArrayList<WalkableSquare>()));
+    super( "sprite/scene/Kitchen_ready_png.png", new WalkableArea(new ArrayList<WalkableSquare>()));
 
     walkableArea.add(new WalkableSquare(240, 495, 1400, 480));
     // DINER DOOR V
@@ -160,7 +160,7 @@ class DiningRoom extends Scene
 
 
   DiningRoom() {
-    super( "sprite/scene/diningplaceholder.png", new WalkableArea(new ArrayList<WalkableSquare>()));
+    super( "sprite/scene/Livingroom_ready_png.png", new WalkableArea(new ArrayList<WalkableSquare>()));
 
     walkableArea.add(new WalkableSquare(290, 465, 1380, 330));
     // KITCHEN DOOR V

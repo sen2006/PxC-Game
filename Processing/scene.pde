@@ -28,7 +28,8 @@ class Scene extends State
 
   public void doStepWhileInState()
   {
-    image( background, 0, 0, width, height );
+    background(0);
+    image( background, width/2 - background.width/2, height/2 - background.height/2);
 
     for (int i = objects.size()-1; i>=0; i--) {
       Object object = objects.get(i);
