@@ -31,6 +31,11 @@ final State HALL_LEFT = new HallLeft();
 final State HALL_RIGHT = new HallRight();
 final State KITCHEN = new Kitchen();
 final State LIVINGROOM = new LivingRoom();
+final State BATHROOM = new Bathroom();
+final State LIBRARY = new Library();
+final State STUDY = new Study();
+final State HUNTING = new Hunting();
+
 
 final State  END_GAME_SCENE = new  EndGameScene();
 //final State FOREST_SCENE = new ForestScene();
@@ -77,6 +82,10 @@ void setup() {
   HALL_RIGHT.createDoors();
   KITCHEN.createDoors();
   LIVINGROOM.createDoors();
+  BATHROOM.createDoors();
+  LIBRARY.createDoors();
+  STUDY.createDoors();
+  HUNTING.createDoors();
 }
 
 

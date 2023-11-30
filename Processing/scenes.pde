@@ -72,6 +72,8 @@ class HallLeft extends Scene
     doorList.add(new Door(1360, 750, 140, 50, ENTRANCE, 860, 380));
     doorList.add(new Door(940, 580, 140, 110, KITCHEN, 500, 900));
     doorList.add(new Door(1480, 650, 100, 130, HALL_RIGHT, 545, 760, false));
+    doorList.add(new Door(260, 750, 140, 50, BATHROOM, 860, 380));
+    doorList.add(new Door(700, 750, 140, 50, STUDY, 860, 380));
 
     ArrayList<Dialogue> dialogueList = new ArrayList<>();
     dialogueList.add(new ImageDialogue("I feel no need to go here.", 50, 1600, "sprite/dialogue/placeholdermaincar.png"));
@@ -110,6 +112,9 @@ class HallRight extends Scene
 
   void createDoors() {
     doorList.add(new Door(480, 710, 60, 130, HALL_LEFT, 1470, 720, false));
+    doorList.add(new Door(700, 750, 140, 50, LIBRARY, 860, 380));
+    doorList.add(new Door(1250, 800, 140, 50, HUNTING, 860, 380));
+    
     ArrayList<Dialogue> dialogueList = new ArrayList<>();
     dialogueList.add(new ImageDialogue("I feel no need to go here.", 50, 1600, "sprite/dialogue/placeholdermaincar.png"));
     doorList.add(new DialogueLockedDoor(1150, 600, 290, 130, dialogueList, 1280, 750));
@@ -182,6 +187,152 @@ class LivingRoom extends Scene
 
   void createDoors() {
     doorList.add(new Door(290, 790, 540, 100, KITCHEN, 540, 300, false));
+  }
+
+  void handleMousePressed() {
+    super.handleMousePressed();
+  }
+}
+
+// =============================
+// ---- BATHROOM
+// =============================
+
+class Bathroom extends Scene
+{
+
+
+  Bathroom() {
+    super( "sprite/scene/Bathroom_ready_png.png", new WalkableArea(new ArrayList<WalkableSquare>()));
+
+    walkableArea.add(new WalkableSquare(650, 330, 550, 600));
+    //Hall Door V
+    walkableArea.add(new WalkableSquare(800, 200, 135, 140));
+
+    // Small Table V
+    walkableArea.add(new Obstacle(1065, 850, 130, 80));
+  }
+
+  public void doStepWhileInState()
+  {
+    super.doStepWhileInState();
+
+    for (Object object : objects) {
+      object.draw();
+    }
+  }
+  void createDoors() {
+    doorList.add(new Door(800, 200, 135, 145, HALL_LEFT, 1420, 740));
+  }
+    void handleMousePressed() {
+      super.handleMousePressed();
+    }
+  }
+
+// =============================
+// ---- STUDY
+// =============================
+
+class Study extends Scene
+{
+
+
+  Study() {
+    super( "sprite/scene/Study_ready_png.png", new WalkableArea(new ArrayList<WalkableSquare>()));
+
+    walkableArea.add(new WalkableSquare(650, 330, 550, 600));
+    //Hall Door V
+    walkableArea.add(new WalkableSquare(800, 200, 135, 140));
+
+    // Small Table V
+    walkableArea.add(new Obstacle(1065, 850, 130, 80));
+  }
+
+  public void doStepWhileInState()
+  {
+    super.doStepWhileInState();
+
+    for (Object object : objects) {
+      object.draw();
+    }
+  }
+
+  void createDoors() {
+    doorList.add(new Door(800, 200, 135, 145, HALL_LEFT, 1420, 740));
+  }
+
+  void handleMousePressed() {
+    super.handleMousePressed();
+  }
+}
+
+// =============================
+// ---- LIBRARY
+// =============================
+
+class Library extends Scene
+{
+  
+
+  Library() {
+    super( "sprite/scene/Library_ready_png.png", new WalkableArea(new ArrayList<WalkableSquare>()));
+
+    walkableArea.add(new WalkableSquare(650, 330, 550, 600));
+    //Hall Door V
+    walkableArea.add(new WalkableSquare(800, 200, 135, 140));
+
+    // Small Table V
+    walkableArea.add(new Obstacle(1065, 850, 130, 80));
+  }
+
+  public void doStepWhileInState()
+  {
+    super.doStepWhileInState();
+
+    for (Object object : objects) {
+      object.draw();
+    }
+  }
+
+  void createDoors() {
+    doorList.add(new Door(800, 200, 135, 145, HALL_RIGHT, 1420, 740));
+  }
+
+  void handleMousePressed() {
+    super.handleMousePressed();
+  }
+}
+
+// =============================
+// ---- HUNTING
+// =============================
+
+class Hunting extends Scene
+{
+
+
+  Hunting() {
+    super( "sprite/scene/Hunting_room_ready_png.png", new WalkableArea(new ArrayList<WalkableSquare>()));
+
+    walkableArea.add(new WalkableSquare(650, 330, 550, 600));
+    //Hall Door V
+    walkableArea.add(new WalkableSquare(800, 200, 135, 140));
+
+    // Small Table V
+    walkableArea.add(new Obstacle(1065, 850, 130, 80));
+  }
+
+  public void doStepWhileInState()
+  {
+    super.doStepWhileInState();
+
+    for (Object object : objects) {
+      object.draw();
+    }
+  }
+
+  void createDoors() {
+    doorList.add(new Door(800, 200, 135, 145, HALL_RIGHT, 1420, 740));
   }
 
   void handleMousePressed() {
