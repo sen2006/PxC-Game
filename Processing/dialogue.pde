@@ -49,8 +49,8 @@ class DialogueHandler {
       return;
     }
     if (boxH == 0 || boxW == 0 ) {
-      boxX = width/2-DialogueBox.width/2+30;
-      boxY = height-DialogueBox.height-40;
+      boxX = width/2-DialogueBox.width/2;
+      boxY = height-DialogueBox.height;
       boxH = DialogueBox.height;
       boxW = DialogueBox.width;
     }
@@ -72,7 +72,7 @@ class DialogueHandler {
         fill(#fff6d3);
         textSize(dialogue.getSize());
         textAlign(CENTER);
-        text(dialogue.getText(), boxX, boxY+20, boxW, boxH);
+        text(dialogue.getText(), boxX+40, boxY+40, boxW-80, boxH);
         textSize(20);
         text("Click to continue...", boxX+boxW-260, height-90, 300, 80);
       }
