@@ -37,13 +37,14 @@ final State STUDY = new Study();
 final State HUNTING = new Hunting();
 
 
-final State  END_GAME_SCENE = new  EndGameScene();
 //final State FOREST_SCENE = new ForestScene();
 
 // ===CUT SCENES
 
 final State FIRST_CUTSCENE = new BeginingCutScene();
-final State TESTVIDEO = new TestVideoScene();
+final State FINAL_CUTSCENE_GOOD = new EndingCutSceneGood();
+final State FINAL_CUTSCENE_BAD = new EndingCutSceneBad();
+
 
 
 void setup() {
@@ -70,7 +71,7 @@ void setup() {
   player.teleport(900, 900);
 
   //Load all videos
-  TESTVIDEO.loadVideo();
+  //TESTVIDEO.loadVideo();
 
 
   //mention all scenes with doors here
@@ -169,10 +170,8 @@ void Time () {
   textSize(32);
   text((floor(time/60)>0?(floor(time/60) + ":"):"") + (time%60 < 10&&floor(time/60)>0?"0":"") + floor(time % 60), width/2, 40);
   if (time <= 0) {
-    textSize(56);
-    text("Game Over", width/2, height/2);
     gameOver = true;
-    stateHandler.changeStateTo( END_GAME_SCENE );
+    stateHandler.changeStateTo( FINAL_CUTSCENE_BAD );
   } else {
     time -= deltaTime/1000f;
     time = max(time, 0);

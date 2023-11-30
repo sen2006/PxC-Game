@@ -120,7 +120,7 @@ class HallRight extends Scene
 
   void createDoors() {
     doorList.add(new Door(330, 590, 70, 160, HALL_LEFT, 1770, 670, false));
-    doorList.add(new Door(700, 730, 190, 50, LIBRARY, 860, 380));
+    doorList.add(new Door(700, 730, 190, 50, LIBRARY, 1010, 305));
     doorList.add(new Door(1415, 620, 50, 130, HUNTING, 775, 660));
     
     ArrayList<Dialogue> dialogueList = new ArrayList<>();
@@ -146,6 +146,8 @@ class Kitchen extends Scene
 
     walkableArea.add(new WalkableSquare(105, 240, 1700, 730));
     // DINER DOOR V
+    walkableArea.add(new WalkableSquare(345, 960, 250, 50));
+    // HALL DOOR V
     walkableArea.add(new WalkableSquare(105, 0, 660, 240));
     
     objects.add(new Object(1300, 550, true, true, "groceries", "sprite/object/placeholders/placeholder.png"));
@@ -161,8 +163,8 @@ class Kitchen extends Scene
   }
 
   void createDoors() {
-    doorList.add(new Door(450, 940, 140, 50, HALL_LEFT, 990, 700));
-    doorList.add(new Door(105, 0, 660, 200, LIVINGROOM, 500, 700, false));
+    doorList.add(new Door(345, 960, 250, 50, HALL_LEFT, 1200, 610));
+    doorList.add(new Door(105, 0, 660, 200, LIVINGROOM, 380, 910, false));
   }
 
   void handleMousePressed() {
@@ -176,7 +178,9 @@ class Kitchen extends Scene
 
 class LivingRoom extends Scene
 {
-
+  
+ boolean lighterAdded=false;
+ boolean playedScene=false;
 
   LivingRoom() {
     super( "sprite/scene/Livingroom_ready_png.png", new WalkableArea(new ArrayList<WalkableSquare>()));
@@ -184,6 +188,8 @@ class LivingRoom extends Scene
     walkableArea.add(new WalkableSquare(100, 455, 1710, 500));
     // KITCHEN DOOR V
     walkableArea.add(new WalkableSquare(100, 925, 660, 100));
+    
+    objects.add(new Object(1245, 615, true, true, "ashtray", "sprite/object/placeholders/placeholder.png"));
   }
 
   public void doStepWhileInState()
@@ -192,6 +198,20 @@ class LivingRoom extends Scene
 
     for (Object object : objects) {
       object.draw();
+    }
+    if((!lighterAdded) && 
+    isKeyStringInInv("knife") &&
+    isKeyStringInInv("ashtray") &&
+    isKeyStringInInv("gun") &&
+    isKeyStringInInv("glass") &&
+    isKeyStringInInv("groceries")) {
+      objects.add(new Object(1130, 560, true, true, "lighter", "sprite/object/placeholders/placeholder.png"));
+      lighterAdded=true;
+    }
+    
+    if(!playedScene && isKeyStringInInv("lighter")) {
+      stateHandler.changeStateTo( FINAL_CUTSCENE_GOOD );
+      playedScene=true;
     }
   }
 
@@ -218,6 +238,8 @@ class Bathroom extends Scene
     walkableArea.add(new WalkableSquare(560, 295, 790, 740));
     //Hall Door V
     walkableArea.add(new WalkableSquare(1030, 105, 160, 200));
+    
+    objects.add(new Object(1305, 495, true, true, "knife", "sprite/object/placeholders/placeholder.png"));
 
   }
 
@@ -283,12 +305,13 @@ class Library extends Scene
   Library() {
     super( "sprite/scene/Library_ready_png.png", new WalkableArea(new ArrayList<WalkableSquare>()));
 
-    walkableArea.add(new WalkableSquare(650, 330, 550, 600));
+    walkableArea.add(new WalkableSquare(260, 290, 985, 735));
+    walkableArea.add(new WalkableSquare(1280, 290, 370, 735));
+    walkableArea.add(new WalkableSquare(1230, 520, 70, 150));
     //Hall Door V
-    walkableArea.add(new WalkableSquare(800, 200, 135, 140));
+    walkableArea.add(new WalkableSquare(930, 100, 160, 200));
 
-    // Small Table V
-    walkableArea.add(new Obstacle(1065, 850, 130, 80));
+    objects.add(new Object(1600, 600, true, true, "glass", "sprite/object/placeholders/placeholder.png"));
   }
 
   public void doStepWhileInState()
@@ -301,7 +324,7 @@ class Library extends Scene
   }
 
   void createDoors() {
-    doorList.add(new Door(800, 200, 135, 145, HALL_RIGHT, 1420, 740));
+    doorList.add(new Door(930, 100, 160, 200, HALL_RIGHT, 790, 715));
   }
 
   void handleMousePressed() {
@@ -324,8 +347,7 @@ class Hunting extends Scene
     //Hall Door V
     walkableArea.add(new WalkableSquare(715, 550, 50, 200));
 
-    // Small Table V
-    //walkableArea.add(new Obstacle(1065, 850, 130, 80));
+    objects.add(new Object(1080, 710, true, true, "gun", "sprite/object/placeholders/placeholder.png"));
   }
 
   public void doStepWhileInState()

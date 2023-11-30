@@ -8,7 +8,9 @@ boolean isPointInRectangle(float px, float py, float rx, float ry, float rw, flo
 
 boolean isKeyStringInInv(String keyString) {
   for (Object object : inventory) {
-    return object.getKeyString().equals(keyString);
+    if (object.getKeyString().equals(keyString)) {
+      return true;
+    }
   }
   return false;
 }
