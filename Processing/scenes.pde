@@ -195,6 +195,7 @@ class LivingRoom extends Scene
 {
   boolean playedDialogue=false;
   boolean lighterAdded=false;
+  boolean playedDialogueTwo=false;
   boolean playedScene=false;
 
   LivingRoom() {
@@ -229,8 +230,12 @@ class LivingRoom extends Scene
       lighterAdded=true;
     }
 
-    if (!playedScene && isKeyStringInInv("lighter")) {
-      //stateHandler.changeStateTo( FINAL_CUTSCENE_GOOD );
+    if (!playedDialogueTwo && isKeyStringInInv("lighter")) {
+      dialogueHandler.add(new ImageDialogue("Dialog about this being his lighter", 40, "sprite/dialogue/Detective.png"));
+      playedDialogueTwo=true;
+    }
+    if (!playedScene&&playedDialogueTwo&&!dialogueHandler.isPlaying()) {
+      stateHandler.changeStateTo( FINAL_CUTSCENE_GOOD );
       playedScene=true;
     }
   }
