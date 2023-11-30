@@ -49,10 +49,10 @@ class DialogueHandler {
       return;
     }
     if (boxH == 0 || boxW == 0 ) {
-      boxX = 0;
-      boxY = height-DialogueBox.height;
+      boxX = width/2-DialogueBox.width/2+30;
+      boxY = height-DialogueBox.height-40;
       boxH = DialogueBox.height;
-      boxW = width;
+      boxW = DialogueBox.width;
     }
 
     if (dialogueToDo.size() >0) {
@@ -64,16 +64,17 @@ class DialogueHandler {
           if (sprite == null) {
             sprite = loadImage(dataPath(imageDialogue.getFilename()));
           }
-          image(sprite, 20, (height-boxH)-sprite.height);
+          image(sprite, 20, height-sprite.height);
         }
-
-        image(DialogueBox, boxX, boxY);
+        imageMode(CENTER);
+        image(DialogueBox, width/2, boxY+DialogueBox.height/2);
+        imageMode(CORNER);
         fill(#fff6d3);
         textSize(dialogue.getSize());
         textAlign(CENTER);
         text(dialogue.getText(), boxX, boxY+20, boxW, boxH);
         textSize(20);
-        text("Click to continue...", width-300, height-80, 300, 80);
+        text("Click to continue...", boxX+boxW-260, height-90, 300, 80);
       }
     }
   }

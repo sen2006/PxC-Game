@@ -74,6 +74,7 @@ void setup() {
   font = createFont(dataPath("font/BASKVILL.ttf"), 128);
   textFont(font);
 
+  //DialogueBox = loadImage(dataPath("sprite/ui/ui_text_box_small.png"));
   DialogueBox = loadImage(dataPath("sprite/ui/ui_text_box.png"));
 
   stateHandler = new StateHandler( "Game" );
