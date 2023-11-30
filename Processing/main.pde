@@ -10,6 +10,8 @@ PFont font;
 
 PImage DialogueBox;
 
+Animation testAnim;
+
 Player player = new Player(0, 0);
 boolean debugMode = false;
 boolean gameOver = false;
@@ -76,6 +78,8 @@ void setup() {
 
   //DialogueBox = loadImage(dataPath("sprite/ui/ui_text_box_small.png"));
   DialogueBox = loadImage(dataPath("sprite/ui/ui_text_box.png"));
+  
+  testAnim = new Animation("sprite/animations/left-right/", 8, 100);
 
   stateHandler = new StateHandler( "Game" );
   dialogueHandler = new DialogueHandler();
@@ -104,7 +108,7 @@ void setup() {
 
   song.loop();
   dialogueHandler.add(new ImageDialogue("[That's quite the weather outside. I should hang my coat to dry.]", 40, "sprite/dialogue/Detective.png"));
-  //dialogueHandler.add(new ImageDialogue("TUTORIAL", 40, "sprite/dialogue/Tutorial.png"));
+  dialogueHandler.add(new ImageDialogue("TUTORIAL", 40, "sprite/ui/tutorial.png"));
   dialogueHandler.add(new ImageDialogue("[I should talk to my superior…]", 40, "sprite/dialogue/Detective.png"));
 }
 
@@ -118,6 +122,8 @@ void draw() {
 
   dialogueHandler.draw();
   if (!gameOver && stateHandler.getState() instanceof Scene) Time();
+  
+  //testAnim.display(0, 0);
 }
 
 void getDeltaTime() {

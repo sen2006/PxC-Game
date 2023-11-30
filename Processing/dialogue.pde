@@ -64,7 +64,7 @@ class DialogueHandler {
           if (sprite == null) {
             sprite = loadImage(dataPath(imageDialogue.getFilename()));
           }
-          image(sprite, 20, height-sprite.height);
+          image(sprite, 0, height-sprite.height);
         }
         imageMode(CENTER);
         image(DialogueBox, width/2, boxY+DialogueBox.height/2);
