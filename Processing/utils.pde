@@ -32,9 +32,11 @@ boolean isKeyStringActiveInScene(String keyString, State state) {
 }
 
 void drawInv() {
+  int h=20;
   for (int i=0; i<inventory.size(); i++) {
-    inventory.get(i).setPos(width-100, 20+(i*60));
+    inventory.get(i).setPos(width-100, h);
     inventory.get(i).draw();
+    h+=inventory.get(i).getHeight();
   }
 }
 

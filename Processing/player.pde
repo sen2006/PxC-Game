@@ -20,7 +20,6 @@ class Player {
     y = startY;
     moveX = x;
     moveY = y;
-    
   }
 
   //gets called every frame
@@ -46,19 +45,19 @@ class Player {
       }
       // lerp to desired sertination
       move();
-      
+
       switch (walkDirection) {
-        case UP:
-          break;
-        case DOWN:
-          break;
-        case RIGHT:
-          
-          break;
-        case LEFT:
-          break;
+      case UP:
+        break;
+      case DOWN:
+        break;
+      case RIGHT:
+
+        break;
+      case LEFT:
+        break;
       }
-      
+
       // temporary player model
       stroke(0);
       strokeWeight(1);
@@ -83,9 +82,9 @@ class Player {
     x += movePos.x;
     y += movePos.y;
   }
-  
+
   void setDirection() {
-    if (angle>=(-PI/4)*3&&angle<(-PI/4)){
+    if (angle>=(-PI/4)*3&&angle<(-PI/4)) {
       walkDirection = Direction.UP;
     } else if (angle>=(-PI/4)&&angle<(PI/4)) {
       walkDirection = Direction.RIGHT;
@@ -93,7 +92,7 @@ class Player {
       walkDirection = Direction.DOWN;
     } else {
       walkDirection = Direction.LEFT;
-    } 
+    }
     //println(walkDirection +" : " + angle);
   }
 

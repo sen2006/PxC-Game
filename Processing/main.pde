@@ -6,6 +6,10 @@ import processing.video.*;
 SoundFile doorSound;
 SoundFile song;
 
+PFont font;
+
+PImage DialogueBox;
+
 Player player = new Player(0, 0);
 boolean debugMode = false;
 boolean gameOver = false;
@@ -67,6 +71,10 @@ void setup() {
   doorSound = new SoundFile(this, dataPath("sound/interaction/door.mp3"));
   song = new SoundFile(this, dataPath("sound/music/background_music.mp3"));
 
+  font = createFont(dataPath("font/BASKVILL.ttf"), 128);
+  textFont(font);
+
+  DialogueBox = loadImage(dataPath("sprite/ui/ui_text_box.png"));
 
   stateHandler = new StateHandler( "Game" );
   dialogueHandler = new DialogueHandler();
@@ -94,9 +102,9 @@ void setup() {
   HUNTING.createDoors();
 
   song.loop();
-  dialogueHandler.add(new ImageDialogue("[That's quite the weather outside. I should hang my coat to dry.]", 50, "sprite/dialogue/Detective.png"));
-  //dialogueHandler.add(new ImageDialogue("TUTORIAL", 50, "sprite/dialogue/Tutorial.png"));
-  dialogueHandler.add(new ImageDialogue("[I should talk to my superior…]", 50, "sprite/dialogue/Detective.png"));
+  dialogueHandler.add(new ImageDialogue("[That's quite the weather outside. I should hang my coat to dry.]", 40, "sprite/dialogue/Detective.png"));
+  //dialogueHandler.add(new ImageDialogue("TUTORIAL", 40, "sprite/dialogue/Tutorial.png"));
+  dialogueHandler.add(new ImageDialogue("[I should talk to my superior…]", 40, "sprite/dialogue/Detective.png"));
 }
 
 
@@ -176,9 +184,12 @@ void debug() {
 // end game timer
 void Time () {
   textAlign(CENTER);
-  fill (255);
-  textSize(32);
-  text((floor(time/60)>0?(floor(time/60) + ":"):"") + (time%60 < 10&&floor(time/60)>0?"0":"") + floor(time % 60), width/2, 40);
+  fill (#D82934);
+  textSize(64);
+  imageMode(CENTER);
+  image(DialogueBox, width/2, 40, 200, 60);
+  imageMode(CORNER);
+  text((floor(time/60)>0?(floor(time/60) + ":"):"") + (time%60 < 10&&floor(time/60)>0?"0":"") + floor(time % 60), width/2, 60);
   if (time <= 0) {
     gameOver = true;
     stateHandler.changeStateTo( FINAL_CUTSCENE_BAD );

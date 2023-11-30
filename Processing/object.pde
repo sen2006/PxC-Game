@@ -90,6 +90,10 @@ class Object {
       collected = true;
     }
   }
+
+  int getHeight() {
+    return sprite.height;
+  }
 }
 
 class TogleableObject extends Object {

@@ -50,8 +50,8 @@ class DialogueHandler {
     }
     if (boxH == 0 || boxW == 0 ) {
       boxX = 0;
-      boxY = height-200;
-      boxH = 200;
+      boxY = height-DialogueBox.height;
+      boxH = DialogueBox.height;
       boxW = width;
     }
 
@@ -67,11 +67,8 @@ class DialogueHandler {
           image(sprite, 20, (height-boxH)-sprite.height);
         }
 
-        fill(200);
-        strokeWeight(2);
-        stroke(0);
-        rect(boxX, boxY, boxW, boxH);
-        fill(0);
+        image(DialogueBox, boxX, boxY);
+        fill(#fff6d3);
         textSize(dialogue.getSize());
         textAlign(CENTER);
         text(dialogue.getText(), boxX, boxY+20, boxW, boxH);
