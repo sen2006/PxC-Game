@@ -56,29 +56,33 @@ class DialogueHandler {
     }
 
     if (dialogueToDo.size() >0) {
-      Dialogue dialogue = dialogueToDo.get(0);
+      if (!gameOver && stateHandler.getState() instanceof Scene) {
+        Dialogue dialogue = dialogueToDo.get(0);
 
-      if (dialogue instanceof ImageDialogue) {
-        ImageDialogue imageDialogue = (ImageDialogue) dialogue;
-        if (sprite == null) {
-          sprite = loadImage(dataPath(imageDialogue.getFilename()));
+        if (dialogue instanceof ImageDialogue) {
+          ImageDialogue imageDialogue = (ImageDialogue) dialogue;
+          if (sprite == null) {
+            sprite = loadImage(dataPath(imageDialogue.getFilename()));
+          }
+          image(sprite, 20, (height-boxH)-sprite.height);
         }
-        image(sprite, 20, (height-boxH)-sprite.height);
-      }
 
-      fill(200);
-      strokeWeight(2);
-      stroke(0);
-      rect(boxX, boxY, boxW, boxH);
-      fill(0);
-      textSize(dialogue.getSize());
-      textAlign(CENTER);
-      text(dialogue.getText(), boxX, boxY+20, boxW, boxH);
+        fill(200);
+        strokeWeight(2);
+        stroke(0);
+        rect(boxX, boxY, boxW, boxH);
+        fill(0);
+        textSize(dialogue.getSize());
+        textAlign(CENTER);
+        text(dialogue.getText(), boxX, boxY+20, boxW, boxH);
+        textSize(20);
+        text("Click to continue...", width-300, height-80, 300, 80);
+      }
     }
   }
 
   void handleMousePressed() {
-    if (dialogueToDo.size()>0) {
+    if (mouseButton == LEFT && stateHandler.getState() instanceof Scene && dialogueToDo.size()>0) {
       dialogueToDo.remove(0);
       sprite = null;
     }

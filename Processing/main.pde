@@ -60,7 +60,7 @@ void setup() {
   textSize(100);
   background(0);
   fill(255);
-  text("LOADING", 0, 0, width, height);
+  text("LOADING...", 0, height/2, width, height/2);
 
   inventory = new ArrayList<Object>();
 
@@ -72,7 +72,7 @@ void setup() {
   dialogueHandler = new DialogueHandler();
 
   // STARTING STATE and position
-  stateHandler.changeStateTo( ENTRANCE );
+  stateHandler.changeStateTo( FIRST_CUTSCENE );
   player.teleport(900, 900);
 
   //Load all videos
@@ -94,7 +94,9 @@ void setup() {
   HUNTING.createDoors();
 
   song.loop();
-  dialogueHandler.add(new ImageDialogue("That's quite the weather outside. I should hang my coat to dry.", 50, "sprite/dialogue/Detective.png"));
+  dialogueHandler.add(new ImageDialogue("[That's quite the weather outside. I should hang my coat to dry.]", 50, "sprite/dialogue/Detective.png"));
+  //dialogueHandler.add(new ImageDialogue("TUTORIAL", 50, "sprite/dialogue/Tutorial.png"));
+  dialogueHandler.add(new ImageDialogue("[I should talk to my superior…]", 50, "sprite/dialogue/Detective.png"));
 }
 
 

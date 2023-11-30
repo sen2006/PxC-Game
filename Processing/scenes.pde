@@ -15,6 +15,16 @@ class Entrance extends Scene
 
     // Small Table V
     walkableArea.add(new Obstacle(1130, 910, 200, 150));
+    
+    ArrayList<Dialogue> dialogueList = new ArrayList<>();
+    dialogueList.add(new ImageDialogue("There you are, you are late!", 50, "sprite/dialogue/Superior.png"));
+    dialogueList.add(new ImageDialogue("I couldn't find my lighter, sorry about that. But what matters is that I am here.", 50, "sprite/dialogue/Detective.png"));
+    dialogueList.add(new ImageDialogue("Have you read up on the file?", 50, "sprite/dialogue/Superior.png"));
+    dialogueList.add(new ImageDialogue("I have, but it would be helpful to have it on me during the investigation.", 50, "sprite/dialogue/Detective.png"));
+    dialogueList.add(new ImageDialogue("Here, don't lose it.", 50, "sprite/dialogue/Superior.png"));
+    dialogueList.add(new ImageDialogue("you should talk to the family to see if they know something that could have happened.", 50, "sprite/dialogue/Superior.png"));
+    dialogueList.add(new ImageDialogue("and hurry! This seems to be another case of the Ironwood serial killer, we won't have much time until the FBI takes over the case!", 50, "sprite/dialogue/Superior.png"));
+    objects.add(new NPC(710, 300, "", "sprite/object/placeholders/placeholdernpc.png", dialogueList));
   }
 
   public void doStepWhileInState()
@@ -312,6 +322,42 @@ class Library extends Scene
     walkableArea.add(new WalkableSquare(930, 100, 160, 200));
 
     objects.add(new Object(1600, 600, true, true, "glass", "sprite/object/placeholders/placeholder.png"));
+    
+    
+    ArrayList<Dialogue> WifeDialogueList = new ArrayList<>();
+    WifeDialogueList.add(new ImageDialogue("Afternoon madam.", 50, "sprite/dialogue/Detective.png"));
+    WifeDialogueList.add(new ImageDialogue("Afternoon.", 50, "sprite/dialogue/Wife.png"));
+    WifeDialogueList.add(new ImageDialogue("I'm sorry for interviewing you so soon after your loss but may I ask for your whereabouts this morning?", 50, "sprite/dialogue/Detective.png"));
+    WifeDialogueList.add(new ImageDialogue("I was shopping for groceries as I had seen we ran low on bread and greens, I also wanted to be alone for a little while as I was not feeling well. ", 50, "sprite/dialogue/Wife.png"));
+    WifeDialogueList.add(new ImageDialogue("What happened after?", 50, "sprite/dialogue/Detective.png"));
+    WifeDialogueList.add(new ImageDialogue("When i came home I saw a police car standing in front of the house so I panickily rushed in and left my groceries on the kitchen", 50, "sprite/dialogue/Wife.png"));
+    WifeDialogueList.add(new ImageDialogue("I see, thank you for talking to me, it must be difficult.", 50, "sprite/dialogue/Detective.png"));
+    WifeDialogueList.add(new ImageDialogue("[She said she dropped her groceries in the kitchen, i should see if they are there.]", 50, "sprite/dialogue/Detective.png"));
+    objects.add(new NPC(470, 770, "", "sprite/object/placeholders/placeholdernpc.png", WifeDialogueList));
+    
+    ArrayList<Dialogue> HusbandDialogueList = new ArrayList<>();
+    HusbandDialogueList.add(new ImageDialogue("Afternoon Sir.", 50, "sprite/dialogue/Detective.png"));
+    HusbandDialogueList.add(new ImageDialogue("Afternoon.", 50, "sprite/dialogue/Husband.png"));
+    HusbandDialogueList.add(new ImageDialogue("Sorry to bother you with an interview so soon after the incident. But I would be glad if you have any potentially helpful information to share.", 50, "sprite/dialogue/Detective.png"));
+    HusbandDialogueList.add(new ImageDialogue("I can sadly not say much about the incident itself as i was out hunting in the morning although i seem to have lost my hunting dairy. It was a prized possession of mine.", 50, "sprite/dialogue/Husband.png"));
+    HusbandDialogueList.add(new ImageDialogue("When did you return home?", 50, "sprite/dialogue/Detective.png"));
+    HusbandDialogueList.add(new ImageDialogue("I made my way back to my home at around 10 this afternoon, arriving at 10:30 when i saw police vehicles standing outside my property and my wife completely shaken up in the hallway.", 50, "sprite/dialogue/Husband.png"));
+    HusbandDialogueList.add(new ImageDialogue("Thank you for taking the time to talk. I'll be on my way now.", 50, "sprite/dialogue/Detective.png"));
+    HusbandDialogueList.add(new ImageDialogue("[He said he lost his hunting dairy, maybe i can find it.]", 50, "sprite/dialogue/Detective.png"));
+    objects.add(new NPC(470, 870, "", "sprite/object/placeholders/placeholdernpc.png", HusbandDialogueList));
+    
+    ArrayList<Dialogue> ButlerDialogueList = new ArrayList<>();
+    ButlerDialogueList.add(new ImageDialogue("Afternoon.", 50, "sprite/dialogue/Detective.png"));
+    ButlerDialogueList.add(new ImageDialogue("Is there anything you can tell me about the situation?", 50, "sprite/dialogue/Detective.png"));
+    ButlerDialogueList.add(new ImageDialogue("I was in the cellar organizing the wine collection following a family reunion last week when i heard the maid screaming upstairs. and when i found her i called 112 as soon as i could.", 50, "sprite/dialogue/Butler.png"));
+    ButlerDialogueList.add(new ImageDialogue("I'm sorry she couldn't be saved.", 50, "sprite/dialogue/Detective.png"));
+    ButlerDialogueList.add(new ImageDialogue("They did their best…", 50, "sprite/dialogue/Butler.png"));
+    ButlerDialogueList.add(new ImageDialogue("On another note. I found that some of the cutlery was missing from the kitchen, specifically a large meat-knife. There was also a sistinct smell of cigaret smoke in the livingroom.", 50, "sprite/dialogue/Butler.png"));
+    ButlerDialogueList.add(new ImageDialogue("Thank you for the information.", 50, "sprite/dialogue/Detective.png"));
+    ButlerDialogueList.add(new ImageDialogue("[He said there was a knife missing, maybe i can find it.]", 50, "sprite/dialogue/Detective.png"));
+    ButlerDialogueList.add(new ImageDialogue("[Also a smell of smoke in the livingroom.]", 50, "sprite/dialogue/Detective.png"));
+    objects.add(new NPC(340, 610, "", "sprite/object/placeholders/placeholdernpc.png", ButlerDialogueList));
+   
   }
 
   public void doStepWhileInState()
