@@ -30,7 +30,7 @@ class Entrance extends Scene
     doorList.add(new Door(790, 80, 165, 210, HALL_LEFT, 1500, 740));
     
     ArrayList<Dialogue> dialogueList = new ArrayList<>();
-    dialogueList.add(new ImageDialogue("I feel no need to go here.", 50, 1600, "sprite/dialogue/placeholdermaincar.png"));
+    dialogueList.add(new ImageDialogue("I feel no need to go here.", 50, "sprite/dialogue/Detective.png"));
     doorList.add(new DialogueLockedDoor(1120, 240, 190, 140, dialogueList, 1150, 400));
   }
 
@@ -80,7 +80,7 @@ class HallLeft extends Scene
     doorList.add(new Door(650, 750, 190, 50, STUDY, 860, 300));
 
     ArrayList<Dialogue> dialogueList = new ArrayList<>();
-    dialogueList.add(new ImageDialogue("I feel no need to go here.", 50, 1600, "sprite/dialogue/placeholdermaincar.png"));
+    dialogueList.add(new ImageDialogue("I feel no need to go here.", 50, "sprite/dialogue/Detective.png"));
     doorList.add(new DialogueLockedDoor(190, 440, 295, 180, dialogueList, 300, 680));
   }
 
@@ -124,7 +124,7 @@ class HallRight extends Scene
     doorList.add(new Door(1415, 620, 50, 130, HUNTING, 775, 660));
     
     ArrayList<Dialogue> dialogueList = new ArrayList<>();
-    dialogueList.add(new ImageDialogue("I feel no need to go here.", 50, 1600, "sprite/dialogue/placeholdermaincar.png"));
+    dialogueList.add(new ImageDialogue("I feel no need to go here.", 50, "sprite/dialogue/Detective.png"));
     doorList.add(new DialogueLockedDoor(1120, 310, 300, 280, dialogueList, 1270, 600));
   }
 

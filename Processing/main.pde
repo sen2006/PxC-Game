@@ -4,6 +4,7 @@ import processing.video.*;
 // ============ VARIABLES ============
 
 SoundFile doorSound;
+SoundFile song;
 
 Player player = new Player(0, 0);
 boolean debugMode = false;
@@ -15,7 +16,9 @@ float time = 300;
 
 // ============ ENUMS ============
 
-enum Direction{UP,DOWN,LEFT,RIGHT}
+enum Direction {
+  UP, DOWN, LEFT, RIGHT
+}
 
 // ============ STATE HANDLER AND STATES ============
 StateHandler stateHandler;
@@ -48,7 +51,7 @@ final State FINAL_CUTSCENE_BAD = new EndingCutSceneBad();
 
 
 void setup() {
-  
+
   frameRate(60);
   size(1920, 1080);
 
@@ -62,6 +65,8 @@ void setup() {
   inventory = new ArrayList<Object>();
 
   doorSound = new SoundFile(this, dataPath("sound/interaction/door.mp3"));
+  song = new SoundFile(this, dataPath("sound/music/background_music.mp3"));
+
 
   stateHandler = new StateHandler( "Game" );
   dialogueHandler = new DialogueHandler();
@@ -87,6 +92,9 @@ void setup() {
   LIBRARY.createDoors();
   STUDY.createDoors();
   HUNTING.createDoors();
+
+  song.loop();
+  dialogueHandler.add(new ImageDialogue("That's quite the weather outside. I should hang my coat to dry.", 50, "sprite/dialogue/Detective.png"));
 }
 
 
@@ -158,8 +166,8 @@ void debug() {
     textSize(40);
     fill(255);
     text ("FPS: "+nf(frameRate, 0, 2), 200, 50);
-    
-    text("X:" + nf(mouseX,0,2) + " - " + "Y:" + nf(mouseY,0,2),200,200);
+
+    text("X:" + nf(mouseX, 0, 2) + " - " + "Y:" + nf(mouseY, 0, 2), 200, 200);
   }
 }
 

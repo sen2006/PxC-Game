@@ -80,9 +80,6 @@ class DialogueDoor extends Door {
     super.isPlayerOnDoor();
     if (!playOnce || !played) {
       if ( isPointInRectangle (player.getX(), player.getY(), doorX, doorY, doorWidth, doorHeight)) {
-        for (Dialogue dialogue : dialogueList) {
-          dialogue.resetTime();
-        }
         dialogueHandler.addList(dialogueList);
         player.moveTo(moveX, moveY);
         played = true;
@@ -104,9 +101,6 @@ class DialogueLockedDoor extends Door {
 
   void isPlayerOnDoor() {
     if ( isPointInRectangle (player.getX(), player.getY(), doorX, doorY, doorWidth, doorHeight)) {
-      for (Dialogue dialogue : dialogueList) {
-        dialogue.resetTime();
-      }
       dialogueHandler.addList(dialogueList);
       player.moveTo(moveX, moveY);
     }

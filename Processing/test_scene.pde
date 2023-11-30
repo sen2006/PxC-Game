@@ -48,8 +48,8 @@ class TestSceneTwo extends Scene
     objects.add(new TogleableObject(175, 300, "", "sprite/object/placeholders/placeholder.png"));
 
     ArrayList<Dialogue> dialogueList = new ArrayList<>();
-    dialogueList.add(new Dialogue("NPC TEST", 50, 2000));
-    dialogueList.add(new Dialogue("NPC TEST 2", 50, 2000));
+    dialogueList.add(new Dialogue("NPC TEST", 50));
+    dialogueList.add(new Dialogue("NPC TEST 2", 50));
     objects.add(new NPC(160, 160, "", "sprite/object/placeholders/placeholdernpc.png", dialogueList));
   }
 

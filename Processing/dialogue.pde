@@ -1,22 +1,10 @@
 class Dialogue {
   String dialogueText;
-  int screenTimeMS;
-  int maxScreenTime;
   int size;
 
-  Dialogue(String text, int textSize, int onScreenTime) {
+  Dialogue(String text, int textSize) {
     dialogueText = text;
-    screenTimeMS = onScreenTime;
-    maxScreenTime = onScreenTime;
     size = textSize;
-  }
-
-  int getScreenTimeLeft() {
-    return screenTimeMS;
-  }
-
-  void decreaseTimer () {
-    screenTimeMS-=deltaTime;
   }
 
   String getText() {
@@ -26,17 +14,13 @@ class Dialogue {
   int getSize() {
     return size;
   }
-
-  void resetTime() {
-    screenTimeMS = maxScreenTime;
-  }
 }
 
 class ImageDialogue extends Dialogue {
   String filename;
 
-  ImageDialogue(String text, int textSize, int onScreenTime, String newFilename) {
-    super(text, textSize, onScreenTime);
+  ImageDialogue(String text, int textSize, String newFilename) {
+    super(text, textSize);
     filename = newFilename;
   }
 
@@ -89,19 +73,14 @@ class DialogueHandler {
       fill(0);
       textSize(dialogue.getSize());
       textAlign(CENTER);
-      text(dialogue.getText(), boxX-10, boxY, boxW, boxH+10);
-
-      dialogue.decreaseTimer();
-      if (dialogue.getScreenTimeLeft() <= 0) {
-        dialogueToDo.remove(0);
-        sprite = null;
-      }
+      text(dialogue.getText(), boxX, boxY+20, boxW, boxH);
     }
   }
 
   void handleMousePressed() {
     if (dialogueToDo.size()>0) {
       dialogueToDo.remove(0);
+      sprite = null;
     }
   }
 
