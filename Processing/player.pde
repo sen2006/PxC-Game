@@ -45,7 +45,18 @@ class Player {
       }
       // lerp to desired sertination
       move();
-
+      
+      switch (walkDirection) {
+        case UP:
+          break;
+        case DOWN:
+          break;
+        case RIGHT:
+          break;
+        case LEFT:
+          break;
+      }
+      
       // temporary player model
       stroke(0);
       strokeWeight(1);

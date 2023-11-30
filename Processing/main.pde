@@ -30,7 +30,7 @@ final State ENTRANCE = new Entrance();
 final State HALL_LEFT = new HallLeft();
 final State HALL_RIGHT = new HallRight();
 final State KITCHEN = new Kitchen();
-final State DINER = new DiningRoom();
+final State LIVINGROOM = new LivingRoom();
 
 final State  END_GAME_SCENE = new  EndGameScene();
 //final State FOREST_SCENE = new ForestScene();
@@ -76,7 +76,7 @@ void setup() {
   HALL_LEFT.createDoors();
   HALL_RIGHT.createDoors();
   KITCHEN.createDoors();
-  DINER.createDoors();
+  LIVINGROOM.createDoors();
 }
 
 

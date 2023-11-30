@@ -9,12 +9,12 @@ class Entrance extends Scene
   Entrance() {
     super( "sprite/scene/Entrance_ready_png.png", new WalkableArea(new ArrayList<WalkableSquare>()));
 
-    walkableArea.add(new WalkableSquare(650, 330, 550, 600));
+    walkableArea.add(new WalkableSquare(640, 280, 650, 720));
     //Hall Door V
-    walkableArea.add(new WalkableSquare(800, 200, 135, 140));
+    walkableArea.add(new WalkableSquare(790, 80, 165, 210));
 
     // Small Table V
-    walkableArea.add(new Obstacle(1065, 850, 130, 80));
+    walkableArea.add(new Obstacle(1130, 910, 200, 150));
   }
 
   public void doStepWhileInState()
@@ -27,7 +27,11 @@ class Entrance extends Scene
   }
 
   void createDoors() {
-    doorList.add(new Door(800, 200, 135, 145, HALL_LEFT, 1420, 740));
+    doorList.add(new Door(790, 80, 165, 210, HALL_LEFT, 1420, 740));
+    
+    ArrayList<Dialogue> dialogueList = new ArrayList<>();
+    dialogueList.add(new ImageDialogue("I feel no need to go here.", 50, 1600, "sprite/dialogue/placeholdermaincar.png"));
+    doorList.add(new DialogueLockedDoor(1120, 240, 190, 140, dialogueList, 1150, 400));
   }
 
   void handleMousePressed() {
@@ -143,7 +147,7 @@ class Kitchen extends Scene
 
   void createDoors() {
     doorList.add(new Door(450, 940, 140, 50, HALL_LEFT, 990, 700));
-    doorList.add(new Door(240, 120, 540, 150, DINER, 500, 700, false));
+    doorList.add(new Door(240, 120, 540, 150, LIVINGROOM, 500, 700, false));
   }
 
   void handleMousePressed() {
@@ -152,14 +156,14 @@ class Kitchen extends Scene
 }
 
 // =============================
-// ---- Diner
+// ---- LIVING ROOM
 // =============================
 
-class DiningRoom extends Scene
+class LivingRoom extends Scene
 {
 
 
-  DiningRoom() {
+  LivingRoom() {
     super( "sprite/scene/Livingroom_ready_png.png", new WalkableArea(new ArrayList<WalkableSquare>()));
 
     walkableArea.add(new WalkableSquare(290, 465, 1380, 330));
