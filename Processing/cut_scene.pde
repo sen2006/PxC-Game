@@ -30,6 +30,7 @@ class CutScene extends State {
   public void handleMousePressed() {
     if (mouseButton == LEFT && frames.size()>0) {
       frames.remove(0);
+      sprite=null;
     }
   }
 }

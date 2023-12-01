@@ -1,26 +1,26 @@
 class BeginingCutScene extends CutScene {
   BeginingCutScene() {
-    super(ENTRANCE);
-    frames.add(new CutSceneFrame(2000, "sprite/cutscene/begin/frame_1.png"));
-    frames.add(new CutSceneFrame(2000, "sprite/cutscene/begin/frame_2.png"));
-    frames.add(new CutSceneFrame(2000, "sprite/cutscene/begin/frame_3.png"));
+    super(VIDEOSCENE);
+    frames.add(new CutSceneFrame(2000000, "sprite/ui/Illustration_menu.png"));
   }
 }
 
 class EndingCutSceneGood extends CutScene {
   EndingCutSceneGood() {
-    super(ENTRANCE);
-    frames.add(new CutSceneFrame(2000, "sprite/cutscene/begin/frame_1.png"));
-    frames.add(new CutSceneFrame(2000, "sprite/cutscene/begin/frame_2.png"));
-    frames.add(new CutSceneFrame(2000, "sprite/cutscene/begin/frame_3.png"));
+    super(FIRST_CUTSCENE);
+    frames.add(new CutSceneFrame(2000, "sprite/ui/goodEndWithoutText.jpg"));
   }
 }
 
 class EndingCutSceneBad extends CutScene {
   EndingCutSceneBad() {
-    super(ENTRANCE);
-    frames.add(new CutSceneFrame(2000, "sprite/cutscene/begin/frame_1.png"));
-    frames.add(new CutSceneFrame(2000, "sprite/cutscene/begin/frame_2.png"));
-    frames.add(new CutSceneFrame(2000, "sprite/cutscene/begin/frame_3.png"));
+    super(FIRST_CUTSCENE);
+    frames.add(new CutSceneFrame(2000, "sprite/ui/Bad_ending_newspaper.png"));
+  }
+}
+
+class VideoCutSceneOne extends VideoCutScene {
+  VideoCutSceneOne(){
+    super(ENTRANCE, "video/cutscene/cutscene1.mp4");
   }
 }

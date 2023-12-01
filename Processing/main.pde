@@ -10,7 +10,10 @@ PFont font;
 
 PImage DialogueBox;
 
-Animation testAnim;
+Animation rightWalkAnim;
+Animation leftWalkAnim;
+Animation downWalkAnim;
+Animation upWalkAnim;
 
 Player player = new Player(0, 0);
 boolean debugMode = false;
@@ -45,11 +48,9 @@ final State LIBRARY = new Library();
 final State STUDY = new Study();
 final State HUNTING = new Hunting();
 
-
-//final State FOREST_SCENE = new ForestScene();
-
 // ===CUT SCENES
 
+final State VIDEOSCENE = new VideoCutSceneOne();
 final State FIRST_CUTSCENE = new BeginingCutScene();
 final State FINAL_CUTSCENE_GOOD = new EndingCutSceneGood();
 final State FINAL_CUTSCENE_BAD = new EndingCutSceneBad();
@@ -79,7 +80,10 @@ void setup() {
   //DialogueBox = loadImage(dataPath("sprite/ui/ui_text_box_small.png"));
   DialogueBox = loadImage(dataPath("sprite/ui/ui_text_box.png"));
   
-  testAnim = new Animation("sprite/animations/left-right/", 8, 100);
+  rightWalkAnim = new Animation("sprite/animations/right/", 8, 100);
+  leftWalkAnim = new Animation("sprite/animations/left/", 8, 100);
+  downWalkAnim = new Animation("sprite/animations/down/", 8, 100);
+  upWalkAnim = new Animation("sprite/animations/up/", 8, 100);
 
   stateHandler = new StateHandler( "Game" );
   dialogueHandler = new DialogueHandler();
@@ -89,7 +93,7 @@ void setup() {
   player.teleport(900, 900);
 
   //Load all videos
-  //TESTVIDEO.loadVideo();
+  VIDEOSCENE.loadVideo();
 
 
   //mention all scenes with doors here
@@ -108,7 +112,7 @@ void setup() {
 
   song.loop();
   dialogueHandler.add(new ImageDialogue("[That's quite the weather outside. I should hang my coat to dry.]", 40, "sprite/dialogue/Detective.png"));
-  dialogueHandler.add(new ImageDialogue("TUTORIAL", 40, "sprite/ui/tutorial.png"));
+  dialogueHandler.add(new ImageDialogue("Get close to objects to interact with them.", 40, "sprite/ui/movement.png"));
   dialogueHandler.add(new ImageDialogue("[I should talk to my superior…]", 40, "sprite/dialogue/Detective.png"));
 }
 
@@ -122,8 +126,6 @@ void draw() {
 
   dialogueHandler.draw();
   if (!gameOver && stateHandler.getState() instanceof Scene) Time();
-  
-  //testAnim.display(0, 0);
 }
 
 void getDeltaTime() {

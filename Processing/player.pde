@@ -45,30 +45,51 @@ class Player {
       }
       // lerp to desired sertination
       move();
-
-      switch (walkDirection) {
-      case UP:
-        break;
-      case DOWN:
-        break;
-      case RIGHT:
-
-        break;
-      case LEFT:
-        break;
+      if (isWalking()) {
+        switch (walkDirection) {
+        case UP:
+          upWalkAnim.display(x-20, y-160);
+          break;
+        case DOWN:
+          downWalkAnim.display(x-20, y-160);
+          break;
+        case RIGHT:
+          rightWalkAnim.display(x-20, y-160);
+          break;
+        case LEFT:
+          leftWalkAnim.display(x-20, y-160);
+          break;
+        }
+      } else {
+        switch (walkDirection) {
+        case UP:
+          upWalkAnim.displayOne(x-20, y-160);
+          break;
+        case DOWN:
+          downWalkAnim.displayOne(x-20, y-160);
+          break;
+        case RIGHT:
+          rightWalkAnim.displayOne(x-20, y-160);
+          break;
+        case LEFT:
+          leftWalkAnim.displayOne(x-20, y-160);
+          break;
+        }
       }
 
       // temporary player model
-      stroke(0);
-      strokeWeight(1);
-      fill(150);
-      ellipse(x, y, 50, 50);
-      translate(x, y);
-      rotate(angle);
-      strokeWeight(4);
-      stroke(0);
-      line(0, 0, 25, 0);
-      resetMatrix();
+      if (debugMode) {
+        stroke(0);
+        strokeWeight(1);
+        fill(150);
+        ellipse(x, y, 50, 50);
+        translate(x, y);
+        rotate(angle);
+        strokeWeight(4);
+        stroke(0);
+        line(0, 0, 25, 0);
+        resetMatrix();
+      }
     }
   }
 
@@ -144,6 +165,10 @@ class Player {
   }
   float getMoveY() {
     return moveY;
+  }
+
+  boolean isWalking() {
+    return dist(x, y, moveX, moveY)>2;
   }
 
   //debug rendering

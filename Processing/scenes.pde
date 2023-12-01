@@ -22,7 +22,7 @@ class Entrance extends Scene
     dialogueList.add(new ImageDialogue("Have you read up on the file?", 40, "sprite/dialogue/Superior.png"));
     dialogueList.add(new ImageDialogue("I have, but it would be helpful to have it on me during the investigation.", 40, "sprite/dialogue/Detective.png"));
     dialogueList.add(new ImageDialogue("Here, don't lose it.", 40, "sprite/dialogue/Superior.png"));
-    dialogueList.add(new ImageDialogue("you should talk to the to see if they know something that could have happened. They are in the library.", 40, "sprite/dialogue/Superior.png"));
+    dialogueList.add(new ImageDialogue("you should talk to the family to see if they know something that could have happened. They are in the library.", 40, "sprite/dialogue/Superior.png"));
     dialogueList.add(new ImageDialogue("and hurry! This seems to be another case of the Ironwood serial killer, we won't have much time until the FBI takes over the case!", 40, "sprite/dialogue/Superior.png"));
     objects.add(new NPC(710, 220, "", "sprite/npc/superior.png", dialogueList));
   }
@@ -172,7 +172,7 @@ class Kitchen extends Scene
     }
 
     if (!playedDialogue && isKeyStringInInv("groceries")) {
-      dialogueHandler.add(new ImageDialogue("E", 40, "sprite/dialogue/Detective.png"));
+      dialogueHandler.add(new ImageDialogue("[so the butler was indead away at the time.]", 40, "sprite/dialogue/Detective.png"));
       playedDialogue=true;
     }
   }
@@ -231,7 +231,13 @@ class LivingRoom extends Scene
     }
 
     if (!playedDialogueTwo && isKeyStringInInv("lighter")) {
-      dialogueHandler.add(new ImageDialogue("Dialog about this being his lighter", 40, "sprite/dialogue/Detective.png"));
+      dialogueHandler.add(new ImageDialogue("Wait, i know this lighter.", 40, "sprite/dialogue/Detective.png"));
+      dialogueHandler.add(new ImageDialogue("This is my lighter.", 40, "sprite/dialogue/Detective.png"));
+      dialogueHandler.add(new ImageDialogue("What is going on here?", 40, "sprite/dialogue/Detective.png"));
+      dialogueHandler.add(new ImageDialogue("What ihave i done?", 40, "sprite/dialogue/Detective.png"));
+      dialogueHandler.add(new ImageDialogue("Did I......", 40, "sprite/dialogue/Detective.png"));
+      dialogueHandler.add(new ImageDialogue("......", 40, "sprite/dialogue/Detective.png"));
+      dialogueHandler.add(new ImageDialogue("I have to turn myself in", 40, "sprite/dialogue/Detective.png"));
       playedDialogueTwo=true;
     }
     if (!playedScene&&playedDialogueTwo&&!dialogueHandler.isPlaying()) {
@@ -276,7 +282,7 @@ class Bathroom extends Scene
     }
 
     if (!playedDialogue && isKeyStringInInv("knife")) {
-      dialogueHandler.add(new ImageDialogue("E", 40, "sprite/dialogue/Detective.png"));
+      dialogueHandler.add(new ImageDialogue("this must be the murder weapon. it's still bloody, but so is the sink… the suspect must have washed themselves and left the murder weapon. ", 40, "sprite/dialogue/Detective.png"));
       playedDialogue=true;
     }
   }
@@ -346,11 +352,11 @@ class Library extends Scene
     WifeDialogueList.add(new ImageDialogue("Afternoon madam.", 40, "sprite/dialogue/Detective.png"));
     WifeDialogueList.add(new ImageDialogue("Afternoon.", 40, "sprite/dialogue/Wife.png"));
     WifeDialogueList.add(new ImageDialogue("I'm sorry for interviewing you so soon after your loss but may I ask for your whereabouts this morning?", 40, "sprite/dialogue/Detective.png"));
-    WifeDialogueList.add(new ImageDialogue("I was shopping for groceries as I had seen we ran low on bread and greens, I also wanted to be alone for a little while as I was not feeling well. ", 40, "sprite/dialogue/Wife.png"));
+    WifeDialogueList.add(new ImageDialogue("I went to drink coffee at a cafe with some of my friends. it was late in the evening when I came back.", 40, "sprite/dialogue/Wife.png"));
     WifeDialogueList.add(new ImageDialogue("What happened after?", 40, "sprite/dialogue/Detective.png"));
     WifeDialogueList.add(new ImageDialogue("When I came home I saw a police car standing in front of the house so I panickily rushed in and left my groceries on the kitchen.", 40, "sprite/dialogue/Wife.png"));
     WifeDialogueList.add(new ImageDialogue("I see, thank you for talking to me, it must be difficult.", 40, "sprite/dialogue/Detective.png"));
-    WifeDialogueList.add(new ImageDialogue("[She said she dropped her groceries in the kitchen, I should see if they are there.]", 40, "sprite/dialogue/Detective.png"));
+    WifeDialogueList.add(new ImageDialogue("[So she says she wasn't home at the time of the murder.]", 40, "sprite/dialogue/Detective.png"));
     objects.add(new NPC(470, 520, "", "sprite/npc/wife.png", WifeDialogueList));
 
     ArrayList<Dialogue> HusbandDialogueList = new ArrayList<>();
@@ -370,8 +376,9 @@ class Library extends Scene
     ButlerDialogueList.add(new ImageDialogue("I was in the cellar organizing the wine collection following a family reunion last week when i heard the maid screaming upstairs. and when i found her i called 112 as soon as i could.", 40, "sprite/dialogue/Butler.png"));
     ButlerDialogueList.add(new ImageDialogue("I'm sorry she couldn't be saved.", 40, "sprite/dialogue/Detective.png"));
     ButlerDialogueList.add(new ImageDialogue("They did their best…", 40, "sprite/dialogue/Butler.png"));
-    ButlerDialogueList.add(new ImageDialogue("On another note. I found that some of the cutlery was missing from the kitchen, specifically a large meat-knife. There was also a distinct smell of cigaret smoke in the livingroom.", 40, "sprite/dialogue/Butler.png"));
+    ButlerDialogueList.add(new ImageDialogue("On another note. When leaving the groceries in the kitchen I found that some of the cutlery was missing, specifically a large meat-knife.. There was also a distinct smell of cigaret smoke in the livingroom.", 40, "sprite/dialogue/Butler.png"));
     ButlerDialogueList.add(new ImageDialogue("Thank you for the information.", 40, "sprite/dialogue/Detective.png"));
+    ButlerDialogueList.add(new ImageDialogue("[He said he left the groceries in the kitchen, i should confirm his alibi.]", 40, "sprite/dialogue/Detective.png"));
     ButlerDialogueList.add(new ImageDialogue("[He said there was a knife missing, maybe i can find it.]", 40, "sprite/dialogue/Detective.png"));
     ButlerDialogueList.add(new ImageDialogue("[Also a smell of smoke in the livingroom.]", 40, "sprite/dialogue/Detective.png"));
     objects.add(new NPC(340, 500, "", "sprite/npc/butler.png", ButlerDialogueList));
@@ -422,7 +429,8 @@ class Hunting extends Scene
     }
 
     if (!playedDialogue && isKeyStringInInv("diary")) {
-      dialogueHandler.add(new ImageDialogue("E", 40, "sprite/dialogue/Detective.png"));
+      dialogueHandler.add(new ImageDialogue("[This is the husbands dairy.]", 40, "sprite/dialogue/Detective.png"));
+      dialogueHandler.add(new ImageDialogue("[It says he was having an affair  with the maid.]", 40, "sprite/dialogue/Detective.png"));
       playedDialogue=true;
     }
   }
