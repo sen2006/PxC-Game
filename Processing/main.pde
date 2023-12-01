@@ -21,7 +21,7 @@ boolean gameOver = false;
 ArrayList<Object> inventory;
 int deltaTime = 0;
 int oldMillis = 0;
-float time = 300;
+float time = 180;
 
 // ============ ENUMS ============
 
