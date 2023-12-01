@@ -7,15 +7,15 @@ class BeginingCutScene extends CutScene {
 
 class EndingCutSceneGood extends CutScene {
   EndingCutSceneGood() {
-    super(FIRST_CUTSCENE);
-    frames.add(new CutSceneFrame(2000, "sprite/ui/goodEndWithoutText.jpg"));
+    super(ENTRANCE);
+    frames.add(new CutSceneFrame(2000000, "sprite/ui/goodEndWithoutText.jpg"));
   }
 }
 
 class EndingCutSceneBad extends CutScene {
   EndingCutSceneBad() {
-    super(FIRST_CUTSCENE);
-    frames.add(new CutSceneFrame(2000, "sprite/ui/Bad_ending_newspaper.png"));
+    super(ENTRANCE);
+    frames.add(new CutSceneFrame(2000000, "sprite/ui/Bad_ending_newspaper.png"));
   }
 }
 

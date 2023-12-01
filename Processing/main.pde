@@ -18,6 +18,7 @@ Animation upWalkAnim;
 Player player = new Player(0, 0);
 boolean debugMode = false;
 boolean gameOver = false;
+boolean GameEnded = false;
 ArrayList<Object> inventory;
 int deltaTime = 0;
 int oldMillis = 0;
@@ -126,6 +127,8 @@ void draw() {
 
   dialogueHandler.draw();
   if (!gameOver && stateHandler.getState() instanceof Scene) Time();
+  
+  if (GameEnded && stateHandler.getState() instanceof Entrance) exit();
 }
 
 void getDeltaTime() {
@@ -202,6 +205,7 @@ void Time () {
   if (time <= 0) {
     gameOver = true;
     stateHandler.changeStateTo( FINAL_CUTSCENE_BAD );
+    GameEnded=true;
   } else {
     time -= deltaTime/1000f;
     time = max(time, 0);

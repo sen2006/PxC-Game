@@ -172,7 +172,7 @@ class Kitchen extends Scene
     }
 
     if (!playedDialogue && isKeyStringInInv("groceries")) {
-      dialogueHandler.add(new ImageDialogue("[so the butler was indead away at the time.]", 40, "sprite/dialogue/Detective.png"));
+      dialogueHandler.add(new ImageDialogue("[so the butler was indeed away at the time.]", 40, "sprite/dialogue/Detective.png"));
       playedDialogue=true;
     }
   }
@@ -234,7 +234,7 @@ class LivingRoom extends Scene
       dialogueHandler.add(new ImageDialogue("Wait, i know this lighter.", 40, "sprite/dialogue/Detective.png"));
       dialogueHandler.add(new ImageDialogue("This is my lighter.", 40, "sprite/dialogue/Detective.png"));
       dialogueHandler.add(new ImageDialogue("What is going on here?", 40, "sprite/dialogue/Detective.png"));
-      dialogueHandler.add(new ImageDialogue("What ihave i done?", 40, "sprite/dialogue/Detective.png"));
+      dialogueHandler.add(new ImageDialogue("What I have i done?", 40, "sprite/dialogue/Detective.png"));
       dialogueHandler.add(new ImageDialogue("Did I......", 40, "sprite/dialogue/Detective.png"));
       dialogueHandler.add(new ImageDialogue("......", 40, "sprite/dialogue/Detective.png"));
       dialogueHandler.add(new ImageDialogue("I have to turn myself in", 40, "sprite/dialogue/Detective.png"));
@@ -243,6 +243,7 @@ class LivingRoom extends Scene
     if (!playedScene&&playedDialogueTwo&&!dialogueHandler.isPlaying()) {
       stateHandler.changeStateTo( FINAL_CUTSCENE_GOOD );
       playedScene=true;
+      GameEnded=true;
     }
   }
 
