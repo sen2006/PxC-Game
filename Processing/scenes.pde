@@ -455,7 +455,7 @@ class Hunting extends Scene
     // CLOSET
     walkableArea.add(new Obstacle(840, 622, 1200-840, 900-622));
 
-    objects.add(new Object(1080, 710, true, true, "diary", "sprite/object/diary.png"));
+    objects.add(new Object(1102, 663, true, true, "diary", "sprite/object/diary.png"));
   }
 
   public void doStepWhileInState()

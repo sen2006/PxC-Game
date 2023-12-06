@@ -2,7 +2,7 @@ class Player {
   Direction walkDirection;
   boolean outsideWalkable = false;
 
-  int interactionRadius = 150;
+  int interactionRadius = 170;
 
   PImage sprite;
   float x;
