@@ -61,15 +61,15 @@ class HallLeft extends Scene
     super( "sprite/scene/Hallwayleft_ready_png.png", new WalkableArea(new ArrayList<WalkableSquare>()));
 
     walkableArea.add(new WalkableSquare(190, 595, 1700, 160));
-    // Blocked door V
+    // Blocked door
     walkableArea.add(new WalkableSquare(190, 440, 295, 180));
-    //entrance door V
+    //entrance door
     walkableArea.add(new WalkableSquare(1410, 750, 190, 50));
-    //Kitchen door V
+    //Kitchen door
     walkableArea.add(new WalkableSquare(1120, 400, 160, 200));
-    //BATHROOM door V
+    //BATHROOM door
     walkableArea.add(new WalkableSquare(190, 750, 190, 50));
-    //STUDY door V
+    //STUDY door
     walkableArea.add(new WalkableSquare(650, 750, 190, 50));
   }
 
@@ -155,11 +155,18 @@ class Kitchen extends Scene
     super( "sprite/scene/Kitchen_ready_png.png", new WalkableArea(new ArrayList<WalkableSquare>()));
 
     walkableArea.add(new WalkableSquare(105, 240, 1700, 730));
-    // DINER DOOR V
+    // DINER DOOR
     walkableArea.add(new WalkableSquare(345, 960, 250, 50));
-    // HALL DOOR V
+    // HALL DOOR
     walkableArea.add(new WalkableSquare(105, 0, 660, 240));
-
+    
+    // TABLE
+    walkableArea.add(new Obstacle(1260, 515, 1410-1260, 980-512));
+    // COUNTER 1
+    walkableArea.add(new Obstacle(790, 150, 1680-790, 310-150));
+    // COUNTER 2
+    walkableArea.add(new Obstacle(1670, 515, 1840-1670, 990-515));
+  
     objects.add(new Object(1300, 550, true, true, "groceries", "sprite/object/groceries.png"));
   }
 
@@ -204,6 +211,17 @@ class LivingRoom extends Scene
     walkableArea.add(new WalkableSquare(100, 455, 1710, 500));
     // KITCHEN DOOR V
     walkableArea.add(new WalkableSquare(100, 925, 660, 100));
+    
+    // TABLE
+    walkableArea.add(new Obstacle(185, 530, 730-185, 745-539));
+    
+    // COFFEE TABLE
+    walkableArea.add(new Obstacle(1230, 600, 1480-1230, 705-600));
+    // COUCH 1
+    walkableArea.add(new Obstacle(1085, 505, 1188-1085, 753-539));
+    // COUCH 2
+    walkableArea.add(new Obstacle(1200, 750, 1510-1200, 855-750));
+    
 
     objects.add(new Object(1245, 615, true, true, "ashtray", "sprite/object/ashtray.png"));
   }
@@ -270,6 +288,15 @@ class Bathroom extends Scene
     walkableArea.add(new WalkableSquare(560, 295, 790, 740));
     //Hall Door V
     walkableArea.add(new WalkableSquare(1030, 105, 160, 200));
+    
+    // CLOSET
+    walkableArea.add(new Obstacle(555, 280, 712-555, 590-280));
+    
+    // SINK TABLE
+    walkableArea.add(new Obstacle(1280, 625, 1355-1280, 768-625));
+    
+    // SINK
+    walkableArea.add(new Obstacle(1250, 400, 1368-1250, 535-400));
 
     objects.add(new Object(1280, 480, true, true, "knife", "sprite/object/knife.png"));
   }
@@ -345,6 +372,13 @@ class Library extends Scene
     walkableArea.add(new WalkableSquare(1230, 520, 70, 150));
     //Hall Door V
     walkableArea.add(new WalkableSquare(930, 100, 160, 200));
+    
+    // SHELF 1
+    walkableArea.add(new Obstacle(337, 308, 565-337, 597-308));
+    // SHELF 2
+    walkableArea.add(new Obstacle(643, 308, 872-642, 597-308));
+    //Table
+    walkableArea.add(new Obstacle(862, 755, 1085-862, 887-755));
 
     //objects.add(new Object(1600, 600, true, true, "glass", "sprite/object/glass.png"));
 
@@ -417,6 +451,9 @@ class Hunting extends Scene
     walkableArea.add(new WalkableSquare(735, 400, 455, 500));
     //Hall Door V
     walkableArea.add(new WalkableSquare(715, 550, 50, 200));
+    
+    // CLOSET
+    walkableArea.add(new Obstacle(840, 622, 1200-840, 900-622));
 
     objects.add(new Object(1080, 710, true, true, "diary", "sprite/object/diary.png"));
   }

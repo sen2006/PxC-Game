@@ -22,7 +22,7 @@ boolean GameEnded = false;
 ArrayList<Object> inventory;
 int deltaTime = 0;
 int oldMillis = 0;
-float time = 240;
+float time = 180;
 
 // ============ ENUMS ============
 
@@ -124,9 +124,15 @@ void draw() {
   player.update();
   drawInv();
   if (debugMode) debug();
+  
+  if (!(stateHandler.getState() instanceof Scene)) {
+    song.pause();
+  } else if (!song.isPlaying()) {
+    song.play();
+  }
 
   dialogueHandler.draw();
-  if (!gameOver && stateHandler.getState() instanceof Scene) Time();
+  if (!gameOver && stateHandler.getState() instanceof Scene && !dialogueHandler.isPlaying()) Time();
   
   if (GameEnded && stateHandler.getState() instanceof Entrance) exit();
 }
