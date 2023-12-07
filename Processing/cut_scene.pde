@@ -66,6 +66,7 @@ class VideoCutScene extends State {
   public void handleMousePressed() {
     if (mouseButton == LEFT) {
       stateHandler.changeStateTo(endState);
+      video.stop(); 
     }
   }
 
