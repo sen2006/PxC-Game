@@ -1,1 +1,3 @@
 # PxC Game
+
+This point-and-click detective story game, created over two weeks for a school project using Processing, immerses players in a captivating world of mystery and intrigue. As a seasoned detective, you'll explore beautifully rendered scenes, uncovering clues and solving puzzles to unravel the complex narrative. Each interaction and decision brings you closer to discovering the hidden truth, with detailed visuals and an atmospheric soundtrack enhancing the immersive experience. Dive into the story, challenge your problem-solving skills, and see if you can piece together the clues to solve the case.
